@@ -1,0 +1,321 @@
+[gd_scene format=3 uid="uid://cshwkfl7sc3i5"]
+
+[ext_resource type="Texture2D" uid="uid://cefxse8kpfrtx" path="res://escenario 1.jpg" id="1_b7ldk"]
+[ext_resource type="Script" uid="uid://ddnvss755epwn" path="res://robot_un_brazo.gd" id="2_l21el"]
+[ext_resource type="Texture2D" uid="uid://dl2ynydmwwa8j" path="res://animacion fotos.png" id="3_v6bpe"]
+[ext_resource type="Texture2D" uid="uid://cwufghkv5uy4b" path="res://plataforma.png" id="4_v6bpe"]
+[ext_resource type="Script" uid="uid://c53d83jksqvxo" path="res://bot.gd" id="5_m06ph"]
+[ext_resource type="Texture2D" uid="uid://c5p46uvsrhude" path="res://soldado_con_rifle_caminando_mejor-removebg-preview.png" id="5_yashq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yashq"]
+atlas = ExtResource("3_v6bpe")
+region = Rect2(0, 0, 153, 408)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m06ph"]
+atlas = ExtResource("3_v6bpe")
+region = Rect2(153, 0, 153, 408)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpoy4"]
+atlas = ExtResource("3_v6bpe")
+region = Rect2(459, 0, 153, 408)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6f2m1"]
+atlas = ExtResource("3_v6bpe")
+region = Rect2(306, 0, 153, 408)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6bpe"]
+atlas = ExtResource("3_v6bpe")
+region = Rect2(0, 0, 153, 408)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2b3dc"]
+animations = [{
+"frames": [{
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_yashq")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_m06ph")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_mpoy4")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_6f2m1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6bpe")
+}],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1bsk"]
+size = Vector2(48, 86.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l21el"]
+size = Vector2(1168, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yp482"]
+size = Vector2(321.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_weasr"]
+size = Vector2(56, 616)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgs7o"]
+size = Vector2(32, 638.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2b3dc"]
+size = Vector2(242, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyfpf"]
+size = Vector2(172, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbjm2"]
+size = Vector2(195, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6gf5"]
+size = Vector2(107, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpnmi"]
+size = Vector2(114, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t617m"]
+size = Vector2(166.5, 15)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6bpe"]
+bg_color = Color(0, 0.35686275, 0.011764706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_m1bsk"]
+resource_name = "Vida"
+font_size = 26
+font_color = Color(0, 1, 0.23921569, 1)
+outline_size = 5
+outline_color = Color(0.17163706, 0.17163706, 0.17163703, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbn67"]
+atlas = ExtResource("5_yashq")
+region = Rect2(10, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afjys"]
+atlas = ExtResource("5_yashq")
+region = Rect2(97, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62dkq"]
+atlas = ExtResource("5_yashq")
+region = Rect2(619, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvla6"]
+atlas = ExtResource("5_yashq")
+region = Rect2(445, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0tgp"]
+atlas = ExtResource("5_yashq")
+region = Rect2(358, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu64u"]
+atlas = ExtResource("5_yashq")
+region = Rect2(271, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiu5j"]
+atlas = ExtResource("5_yashq")
+region = Rect2(184, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0iaw"]
+atlas = ExtResource("5_yashq")
+region = Rect2(532, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptqtj"]
+atlas = ExtResource("5_yashq")
+region = Rect2(10, 0, 87, 353)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m1bsk"]
+animations = [{
+"frames": [{
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_vbn67")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_afjys")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_62dkq")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_fvla6")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_o0tgp")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_pu64u")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_xiu5j")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_n0iaw")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptqtj")
+}],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ha12j"]
+size = Vector2(59, 83.125)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m1bsk"]
+radius = 267.0
+
+[node name="Node2D" type="Node2D" unique_id=1602868929]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=135143392]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_b7ldk")
+expand_mode = 1
+
+[node name="robot_un_brazo" type="CharacterBody2D" parent="." unique_id=432451314]
+script = ExtResource("2_l21el")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="robot_un_brazo" unique_id=469542192]
+position = Vector2(281.94363, 525.76935)
+scale = Vector2(0.44370767, 0.47435963)
+sprite_frames = SubResource("SpriteFrames_2b3dc")
+autoplay = "default"
+frame_progress = 0.40318063
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="robot_un_brazo" unique_id=1256581956]
+visible = false
+position = Vector2(279, 528.25)
+shape = SubResource("RectangleShape2D_m1bsk")
+
+[node name="piso" type="StaticBody2D" parent="." unique_id=50944586]
+position = Vector2(-392, 833)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="piso" unique_id=2081974687]
+visible = false
+position = Vector2(967, -248)
+shape = SubResource("RectangleShape2D_l21el")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="piso" unique_id=2011177944]
+visible = false
+position = Vector2(1013, -299)
+shape = SubResource("RectangleShape2D_yp482")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="piso" unique_id=687959959]
+visible = false
+position = Vector2(420, -530)
+shape = SubResource("RectangleShape2D_weasr")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="piso" unique_id=1643637963]
+visible = false
+position = Vector2(1552, -510.25)
+shape = SubResource("RectangleShape2D_sgs7o")
+
+[node name="plataformas" type="StaticBody2D" parent="." unique_id=1570878040]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="plataformas" unique_id=2068824492]
+visible = false
+position = Vector2(770, 258)
+shape = SubResource("RectangleShape2D_2b3dc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="plataformas" unique_id=289631686]
+position = Vector2(767.99994, 262)
+scale = Vector2(0.5810811, 0.43866667)
+texture = ExtResource("4_v6bpe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataformas" unique_id=641877118]
+position = Vector2(400, 368)
+shape = SubResource("RectangleShape2D_2b3dc")
+
+[node name="Sprite2D" type="Sprite2D" parent="plataformas" unique_id=805508452]
+position = Vector2(398.99997, 373)
+scale = Vector2(0.5810811, 0.43866667)
+texture = ExtResource("4_v6bpe")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="plataformas" unique_id=1733695523]
+visible = false
+position = Vector2(93, 400)
+shape = SubResource("RectangleShape2D_tyfpf")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="plataformas" unique_id=642463158]
+visible = false
+position = Vector2(113.5, 95)
+shape = SubResource("RectangleShape2D_nbjm2")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="plataformas" unique_id=1477314561]
+visible = false
+position = Vector2(91.5, 260)
+shape = SubResource("RectangleShape2D_o6gf5")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="plataformas" unique_id=2103532424]
+visible = false
+position = Vector2(1096, 263)
+shape = SubResource("RectangleShape2D_qpnmi")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="plataformas" unique_id=249430707]
+visible = false
+position = Vector2(1072.75, 440.5)
+shape = SubResource("RectangleShape2D_t617m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=818263662]
+
+[node name="BarraVida" type="ProgressBar" parent="CanvasLayer" unique_id=2123075423]
+offset_left = 266.0
+offset_top = 10.0
+offset_right = 558.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1.0107458e-06, 0.5313994, 1.0588765e-06, 1)
+theme_override_font_sizes/font_size = 21
+theme_override_styles/background = SubResource("StyleBoxFlat_v6bpe")
+value = 100.0
+
+[node name="TextoVida" type="Label" parent="." unique_id=213572917]
+offset_left = 193.0
+offset_top = 6.0
+offset_right = 333.0
+offset_bottom = 29.0
+text = "Vida"
+label_settings = SubResource("LabelSettings_m1bsk")
+
+[node name="bot" type="CharacterBody2D" parent="." unique_id=1929282254]
+script = ExtResource("5_m06ph")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="bot" unique_id=771263411]
+position = Vector2(944.375, 528.875)
+scale = Vector2(0.92816114, 0.5601983)
+sprite_frames = SubResource("SpriteFrames_m1bsk")
+animation = &"new_animation"
+autoplay = "new_animation"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bot" unique_id=1474613365]
+visible = false
+position = Vector2(941.875, 526.4375)
+shape = SubResource("RectangleShape2D_ha12j")
+
+[node name="detector" type="Area2D" parent="bot" unique_id=1800525550]
+collision_layer = 0
+
+[node name="RayCast2D" type="RayCast2D" parent="bot/detector" unique_id=970062834]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bot/detector" unique_id=1327239750]
+visible = false
+position = Vector2(940, 527)
+shape = SubResource("CircleShape2D_m1bsk")
+
+[connection signal="body_entered" from="bot/detector" to="robot_un_brazo" method="_on_detector_body_entered"]

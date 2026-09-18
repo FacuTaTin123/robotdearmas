@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://cshwkfl7sc3i5"]
+
+[ext_resource type="Texture2D" uid="uid://cefxse8kpfrtx" path="res://escenario 1.jpg" id="1_b7ldk"]
+[ext_resource type="Script" uid="uid://ddnvss755epwn" path="res://robot_un_brazo.gd" id="2_l21el"]
+[ext_resource type="Texture2D" uid="uid://1doou1i8o173" path="res://robot_con_un_brazo_de_armas.png" id="3_v6bpe"]
+[ext_resource type="Texture2D" uid="uid://cwufghkv5uy4b" path="res://plataforma.png" id="4_v6bpe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1bsk"]
+size = Vector2(48, 86.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l21el"]
+size = Vector2(1168, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yp482"]
+size = Vector2(321.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_weasr"]
+size = Vector2(56, 616)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2b3dc"]
+size = Vector2(242, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyfpf"]
+size = Vector2(172, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbjm2"]
+size = Vector2(195, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6gf5"]
+size = Vector2(107, 28)
+
+[node name="Node2D" type="Node2D" unique_id=1602868929]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=135143392]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_b7ldk")
+expand_mode = 1
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=432451314]
+script = ExtResource("2_l21el")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=813743590]
+position = Vector2(282.75, 526.625)
+scale = Vector2(0.17099999, 0.20649995)
+texture = ExtResource("3_v6bpe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1256581956]
+visible = false
+position = Vector2(279, 528.25)
+shape = SubResource("RectangleShape2D_m1bsk")
+
+[node name="piso" type="StaticBody2D" parent="." unique_id=50944586]
+position = Vector2(-392, 833)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="piso" unique_id=2081974687]
+visible = false
+position = Vector2(967, -248)
+shape = SubResource("RectangleShape2D_l21el")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="piso" unique_id=2011177944]
+visible = false
+position = Vector2(1013, -299)
+shape = SubResource("RectangleShape2D_yp482")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="piso" unique_id=687959959]
+visible = false
+position = Vector2(420, -530)
+shape = SubResource("RectangleShape2D_weasr")
+
+[node name="plataformas" type="StaticBody2D" parent="." unique_id=1570878040]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="plataformas" unique_id=2068824492]
+visible = false
+position = Vector2(770, 258)
+shape = SubResource("RectangleShape2D_2b3dc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="plataformas" unique_id=289631686]
+position = Vector2(767.99994, 262)
+scale = Vector2(0.5810811, 0.43866667)
+texture = ExtResource("4_v6bpe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataformas" unique_id=641877118]
+visible = false
+position = Vector2(396, 352)
+shape = SubResource("RectangleShape2D_2b3dc")
+
+[node name="Sprite2D" type="Sprite2D" parent="plataformas" unique_id=805508452]
+position = Vector2(390.99997, 355)
+scale = Vector2(0.5810811, 0.43866667)
+texture = ExtResource("4_v6bpe")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="plataformas" unique_id=1733695523]
+visible = false
+position = Vector2(93, 400)
+shape = SubResource("RectangleShape2D_tyfpf")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="plataformas" unique_id=642463158]
+visible = false
+position = Vector2(113.5, 95)
+shape = SubResource("RectangleShape2D_nbjm2")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="plataformas" unique_id=1477314561]
+visible = false
+position = Vector2(91.5, 260)
+shape = SubResource("RectangleShape2D_o6gf5")
