@@ -7,6 +7,10 @@
 [ext_resource type="Script" uid="uid://c53d83jksqvxo" path="res://bot.gd" id="5_m06ph"]
 [ext_resource type="Texture2D" uid="uid://c5p46uvsrhude" path="res://soldado_con_rifle_caminando_mejor-removebg-preview.png" id="5_yashq"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6bpe"]
+atlas = ExtResource("3_v6bpe")
+region = Rect2(0, 0, 153, 408)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_yashq"]
 atlas = ExtResource("3_v6bpe")
 region = Rect2(0, 0, 153, 408)
@@ -23,12 +27,16 @@ region = Rect2(459, 0, 153, 408)
 atlas = ExtResource("3_v6bpe")
 region = Rect2(306, 0, 153, 408)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v6bpe"]
-atlas = ExtResource("3_v6bpe")
-region = Rect2(0, 0, 153, 408)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_2b3dc"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6bpe")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 0.6,
 "texture": SubResource("AtlasTexture_yashq")
@@ -43,15 +51,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_6f2m1")
 }],
 "loop": 1,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v6bpe")
-}],
-"loop": 1,
-"name": &"new_animation",
+"name": &"walk",
 "speed": 5.0
 }]
 
@@ -88,15 +88,19 @@ size = Vector2(114, 14)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t617m"]
 size = Vector2(166.5, 15)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6bpe"]
-bg_color = Color(0, 0.35686275, 0.011764706, 1)
-
 [sub_resource type="LabelSettings" id="LabelSettings_m1bsk"]
 resource_name = "Vida"
 font_size = 26
 font_color = Color(0, 1, 0.23921569, 1)
 outline_size = 5
 outline_color = Color(0.17163706, 0.17163706, 0.17163703, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6bpe"]
+bg_color = Color(0, 0.35686275, 0.011764706, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptqtj"]
+atlas = ExtResource("5_yashq")
+region = Rect2(10, 0, 87, 353)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vbn67"]
 atlas = ExtResource("5_yashq")
@@ -130,12 +134,16 @@ region = Rect2(184, 0, 87, 353)
 atlas = ExtResource("5_yashq")
 region = Rect2(532, 0, 87, 353)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ptqtj"]
-atlas = ExtResource("5_yashq")
-region = Rect2(10, 0, 87, 353)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_m1bsk"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptqtj")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.3,
 "texture": SubResource("AtlasTexture_vbn67")
@@ -162,15 +170,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_n0iaw")
 }],
 "loop": 1,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ptqtj")
-}],
-"loop": 1,
-"name": &"new_animation",
+"name": &"walk",
 "speed": 5.0
 }]
 
@@ -195,8 +195,8 @@ script = ExtResource("2_l21el")
 position = Vector2(281.94363, 525.76935)
 scale = Vector2(0.44370767, 0.47435963)
 sprite_frames = SubResource("SpriteFrames_2b3dc")
-autoplay = "default"
-frame_progress = 0.40318063
+animation = &"idle"
+autoplay = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="robot_un_brazo" unique_id=1256581956]
 visible = false
@@ -239,6 +239,7 @@ scale = Vector2(0.5810811, 0.43866667)
 texture = ExtResource("4_v6bpe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plataformas" unique_id=641877118]
+visible = false
 position = Vector2(400, 368)
 shape = SubResource("RectangleShape2D_2b3dc")
 
@@ -274,6 +275,14 @@ shape = SubResource("RectangleShape2D_t617m")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=818263662]
 
+[node name="TextoVida" type="Label" parent="CanvasLayer" unique_id=213572917]
+offset_left = 193.0
+offset_top = 6.0
+offset_right = 333.0
+offset_bottom = 42.0
+text = "Vida"
+label_settings = SubResource("LabelSettings_m1bsk")
+
 [node name="BarraVida" type="ProgressBar" parent="CanvasLayer" unique_id=2123075423]
 offset_left = 266.0
 offset_top = 10.0
@@ -285,37 +294,40 @@ theme_override_font_sizes/font_size = 21
 theme_override_styles/background = SubResource("StyleBoxFlat_v6bpe")
 value = 100.0
 
-[node name="TextoVida" type="Label" parent="." unique_id=213572917]
-offset_left = 193.0
-offset_top = 6.0
-offset_right = 333.0
-offset_bottom = 29.0
-text = "Vida"
-label_settings = SubResource("LabelSettings_m1bsk")
-
-[node name="bot" type="CharacterBody2D" parent="." unique_id=1929282254]
+[node name="bot" type="CharacterBody2D" parent="." unique_id=1929282254 node_paths=PackedStringArray("punto_a", "punto_b")]
 script = ExtResource("5_m06ph")
+punto_a = NodePath("../punto a")
+punto_b = NodePath("../punto b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="bot" unique_id=771263411]
-position = Vector2(944.375, 528.875)
+position = Vector2(903, 525)
 scale = Vector2(0.92816114, 0.5601983)
 sprite_frames = SubResource("SpriteFrames_m1bsk")
-animation = &"new_animation"
-autoplay = "new_animation"
+animation = &"walk"
+autoplay = "idle"
+frame_progress = 0.17659493
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bot" unique_id=1474613365]
 visible = false
-position = Vector2(941.875, 526.4375)
+position = Vector2(897, 518)
 shape = SubResource("RectangleShape2D_ha12j")
 
 [node name="detector" type="Area2D" parent="bot" unique_id=1800525550]
 collision_layer = 0
 
-[node name="RayCast2D" type="RayCast2D" parent="bot/detector" unique_id=970062834]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bot/detector" unique_id=1327239750]
 visible = false
 position = Vector2(940, 527)
 shape = SubResource("CircleShape2D_m1bsk")
+
+[node name="RayCast2D" type="RayCast2D" parent="bot" unique_id=1148071263]
+position = Vector2(905, 495)
+target_position = Vector2(-500, 0)
+
+[node name="punto a" type="Marker2D" parent="." unique_id=1846775587]
+position = Vector2(43, 508)
+
+[node name="punto b" type="Marker2D" parent="." unique_id=1238793219]
+position = Vector2(1136, 498)
 
 [connection signal="body_entered" from="bot/detector" to="robot_un_brazo" method="_on_detector_body_entered"]

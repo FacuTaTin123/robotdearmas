@@ -72,9 +72,9 @@ func _physics_process(delta: float) -> void:
 
 	# ANIMACIÓN
 	if direccion_x != 0 and is_on_floor():
-		$Sprite2D.play("default")
+		$Sprite2D.play("walk")
 	else:
-		$Sprite2D.play("new_animation")
+		$Sprite2D.play("idle")
 
 	# DETECTAR CUANDO SE APRETA W
 	var w_presionada = Input.is_key_pressed(KEY_W)
@@ -95,8 +95,6 @@ func _physics_process(delta: float) -> void:
 
 	# DETECTAR ATERRIZAJE
 	if is_on_floor() and estaba_en_el_aire:
-
-		print("Velocidad de caída:", velocidad_caida_maxima)
 
 		if velocidad_caida_maxima > 900:
 			recibir_daño(daño_caida)
