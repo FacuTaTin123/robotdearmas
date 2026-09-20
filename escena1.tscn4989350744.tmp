@@ -5,7 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dl2ynydmwwa8j" path="res://animacion fotos.png" id="3_v6bpe"]
 [ext_resource type="Texture2D" uid="uid://cwufghkv5uy4b" path="res://plataforma.png" id="4_v6bpe"]
 [ext_resource type="Script" uid="uid://cyay8u532ubd6" path="res://canvas_layer.gd" id="5_6f2m1"]
-[ext_resource type="PackedScene" uid="uid://t8bvx6hkd2pw" path="res://bot.tscn" id="6_mpoy4"]
+[ext_resource type="Script" uid="uid://c53d83jksqvxo" path="res://bot.gd" id="5_m06ph"]
+[ext_resource type="Texture2D" uid="uid://c5p46uvsrhude" path="res://soldado_con_rifle_caminando_mejor-removebg-preview.png" id="5_yashq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v6bpe"]
 atlas = ExtResource("3_v6bpe")
@@ -100,6 +101,88 @@ bg_color = Color(0, 0.29842785, 0.5965557, 0.45882353)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpoy4"]
 bg_color = Color(0.11327134, 0.11999545, 0.48309848, 0.4392157)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptqtj"]
+atlas = ExtResource("5_yashq")
+region = Rect2(10, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbn67"]
+atlas = ExtResource("5_yashq")
+region = Rect2(10, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afjys"]
+atlas = ExtResource("5_yashq")
+region = Rect2(97, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62dkq"]
+atlas = ExtResource("5_yashq")
+region = Rect2(619, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvla6"]
+atlas = ExtResource("5_yashq")
+region = Rect2(445, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0tgp"]
+atlas = ExtResource("5_yashq")
+region = Rect2(358, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu64u"]
+atlas = ExtResource("5_yashq")
+region = Rect2(271, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiu5j"]
+atlas = ExtResource("5_yashq")
+region = Rect2(184, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0iaw"]
+atlas = ExtResource("5_yashq")
+region = Rect2(532, 0, 87, 353)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m1bsk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptqtj")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_vbn67")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_afjys")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_62dkq")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_fvla6")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_o0tgp")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_pu64u")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_xiu5j")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_n0iaw")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ha12j"]
+size = Vector2(59, 83.125)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m1bsk"]
+radius = 267.0
+
 [node name="Node2D" type="Node2D" unique_id=1602868929]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=135143392]
@@ -110,6 +193,10 @@ expand_mode = 1
 
 [node name="robot_un_brazo" type="CharacterBody2D" parent="." unique_id=432451314]
 script = ExtResource("2_l21el")
+velocidad = null
+fuerza_salto = null
+gravedad = null
+corte_salto = null
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="robot_un_brazo" unique_id=469542192]
 position = Vector2(281.94363, 525.76935)
@@ -246,25 +333,40 @@ offset_bottom = -5.0
 grow_vertical = 2
 horizontal_alignment = 1
 
-[node name="bot" parent="." unique_id=116251678 node_paths=PackedStringArray("punto_a", "punto_b") instance=ExtResource("6_mpoy4")]
+[node name="bot" type="CharacterBody2D" parent="." unique_id=1929282254 node_paths=PackedStringArray("punto_a", "punto_b")]
+script = ExtResource("5_m06ph")
 punto_a = NodePath("../punto a")
 punto_b = NodePath("../punto b")
 
-[node name="punto b" type="Marker2D" parent="." unique_id=1238793219]
-position = Vector2(1148, 500)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="bot" unique_id=771263411]
+position = Vector2(903, 525)
+scale = Vector2(0.92816114, 0.5601983)
+sprite_frames = SubResource("SpriteFrames_m1bsk")
+animation = &"walk"
+autoplay = "idle"
+frame_progress = 0.17659493
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bot" unique_id=1474613365]
+visible = false
+position = Vector2(897, 518)
+shape = SubResource("RectangleShape2D_ha12j")
+
+[node name="detector" type="Area2D" parent="bot" unique_id=1800525550]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bot/detector" unique_id=1327239750]
+visible = false
+position = Vector2(940, 527)
+shape = SubResource("CircleShape2D_m1bsk")
+
+[node name="RayCast2D" type="RayCast2D" parent="bot" unique_id=1148071263]
+position = Vector2(905, 495)
+target_position = Vector2(-500, 0)
 
 [node name="punto a" type="Marker2D" parent="." unique_id=1846775587]
 position = Vector2(49, 515)
 
-[node name="Spawner" type="Node" parent="." unique_id=1559129097]
+[node name="punto b" type="Marker2D" parent="." unique_id=1238793219]
+position = Vector2(1148, 500)
 
-[node name="TimerSpawn" type="Timer" parent="Spawner" unique_id=778886304]
-
-[node name="SpawnPoint1" type="Marker2D" parent="." unique_id=1237074615]
-position = Vector2(105, 172)
-
-[node name="SpawnPoint2" type="Marker2D" parent="." unique_id=645618282]
-position = Vector2(1084, 173)
-
-[node name="SpawnPoint3" type="Marker2D" parent="." unique_id=1111459138]
-position = Vector2(108, 306)
+[connection signal="body_entered" from="bot/detector" to="robot_un_brazo" method="_on_detector_body_entered"]

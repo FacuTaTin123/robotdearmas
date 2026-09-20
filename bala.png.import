@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bshid34fnjykw"
-path="res://.godot/imported/soldado con rifle caminando.png-6a87e6d2ff7f80f5a34f3ca12f6ac637.ctex"
+uid="uid://ci15dm6c6xy7x"
+path="res://.godot/imported/bala.png-307fa9043c2611f2c6a1a490a284e6aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://soldado con rifle caminando.png"
-dest_files=["res://.godot/imported/soldado con rifle caminando.png-6a87e6d2ff7f80f5a34f3ca12f6ac637.ctex"]
+source_file="res://bala.png"
+dest_files=["res://.godot/imported/bala.png-307fa9043c2611f2c6a1a490a284e6aa.ctex"]
 
 [params]
 

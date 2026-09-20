@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://t8bvx6hkd2pw"]
+
+[ext_resource type="Script" uid="uid://c53d83jksqvxo" path="res://bot.gd" id="1_mo174"]
+[ext_resource type="Texture2D" uid="uid://c5p46uvsrhude" path="res://soldado_con_rifle_caminando_mejor-removebg-preview.png" id="2_5unqy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptqtj"]
+atlas = ExtResource("2_5unqy")
+region = Rect2(10, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbn67"]
+atlas = ExtResource("2_5unqy")
+region = Rect2(10, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afjys"]
+atlas = ExtResource("2_5unqy")
+region = Rect2(97, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62dkq"]
+atlas = ExtResource("2_5unqy")
+region = Rect2(619, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvla6"]
+atlas = ExtResource("2_5unqy")
+region = Rect2(445, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0tgp"]
+atlas = ExtResource("2_5unqy")
+region = Rect2(358, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu64u"]
+atlas = ExtResource("2_5unqy")
+region = Rect2(271, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiu5j"]
+atlas = ExtResource("2_5unqy")
+region = Rect2(184, 0, 87, 353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0iaw"]
+atlas = ExtResource("2_5unqy")
+region = Rect2(532, 0, 87, 353)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m1bsk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptqtj")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_vbn67")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_afjys")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_62dkq")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_fvla6")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_o0tgp")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_pu64u")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_xiu5j")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_n0iaw")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ha12j"]
+size = Vector2(59, 83.125)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m1bsk"]
+radius = 267.0
+
+[node name="bot" type="CharacterBody2D" unique_id=116251678 node_paths=PackedStringArray("punto_a", "punto_b")]
+script = ExtResource("1_mo174")
+punto_a = NodePath("")
+punto_b = NodePath("")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1309546733]
+position = Vector2(903, 525)
+scale = Vector2(0.92816114, 0.5601983)
+sprite_frames = SubResource("SpriteFrames_m1bsk")
+animation = &"walk"
+autoplay = "idle"
+frame_progress = 0.17659493
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1601881472]
+visible = false
+position = Vector2(897, 518)
+shape = SubResource("RectangleShape2D_ha12j")
+
+[node name="detector" type="Area2D" parent="." unique_id=1389533317]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detector" unique_id=2049082566]
+visible = false
+position = Vector2(940, 527)
+shape = SubResource("CircleShape2D_m1bsk")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=827908754]
+position = Vector2(905, 495)
+target_position = Vector2(-500, 0)
