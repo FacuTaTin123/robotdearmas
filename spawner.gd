@@ -13,12 +13,15 @@ var juego_terminado: bool = false
 @onready var timer_spawn: Timer = $TimerSpawn
 
 func _ready() -> void:
-	puntos_de_spawn = [$"../SpawnPoint1", $"../SpawnPoint2", $"../SpawnPoint3"]
+	print("SPAWNER: _ready ejecutado")
+
+	puntos_de_spawn = [$"../SpawnPoint1", $"../SpawnPoint2", $"../SpawnPoint3", $"../SpawnPoint4"]
+	print("SPAWNER: puntos cargados = ", puntos_de_spawn.size())
 
 	timer_spawn.wait_time = tiempo_entre_apariciones
 	timer_spawn.timeout.connect(_on_timer_spawn_timeout)
 	timer_spawn.start()
-	spawnear_bot()
+	call_deferred("spawnear_bot")
 
 func _on_timer_spawn_timeout() -> void:
 	if juego_terminado:
@@ -26,19 +29,21 @@ func _on_timer_spawn_timeout() -> void:
 	spawnear_bot()
 
 func spawnear_bot() -> void:
+	print("SPAWNER: spawnear_bot llamado")
+
 	if puntos_de_spawn.is_empty():
+		print("SPAWNER: puntos_de_spawn vacío, corto acá")
 		return
 
 	var punto = puntos_de_spawn[randi() % puntos_de_spawn.size()]
 	var bot = escena_bot.instantiate()
 
-	bot.global_position = punto.global_position
 	bot.punto_a = punto_patrulla_a
 	bot.punto_b = punto_patrulla_b
-
 	bot.murio.connect(_on_bot_murio)
 
-	get_parent().add_child.call_deferred(bot)
+	get_parent().add_child(bot)
+	bot.global_position = punto.global_position
 
 func _on_bot_murio() -> void:
 	bots_eliminados += 1

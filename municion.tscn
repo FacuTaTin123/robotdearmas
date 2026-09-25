@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d0mh5mn735ae2"]
+
+[ext_resource type="Script" uid="uid://cu8jdis3ycl3" path="res://municion.gd" id="1_04wg6"]
+[ext_resource type="Texture2D" uid="uid://bvt7dt1b7f7kf" path="res://municion.png" id="1_84rdg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mq2to"]
+size = Vector2(35, 41)
+
+[node name="Municion" type="Area2D" unique_id=1732155537]
+script = ExtResource("1_04wg6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=219877532]
+position = Vector2(-1.9073486e-06, 0)
+scale = Vector2(0.15149997, 0.102)
+texture = ExtResource("1_84rdg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1126610897]
+shape = SubResource("RectangleShape2D_mq2to")

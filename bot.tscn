@@ -80,27 +80,25 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ha12j"]
-size = Vector2(59, 83.125)
+size = Vector2(50, 75)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m1bsk"]
 radius = 267.0
 
-[node name="bot" type="CharacterBody2D" unique_id=116251678 node_paths=PackedStringArray("punto_a", "punto_b")]
+[node name="bot" type="CharacterBody2D" unique_id=116251678]
+position = Vector2(903, 525)
 script = ExtResource("1_mo174")
-punto_a = NodePath("")
-punto_b = NodePath("")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1309546733]
-position = Vector2(903, 525)
+position = Vector2(5.3750114, 5.875)
 scale = Vector2(0.92816114, 0.5601983)
 sprite_frames = SubResource("SpriteFrames_m1bsk")
 animation = &"walk"
 autoplay = "idle"
-frame_progress = 0.17659493
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1601881472]
 visible = false
-position = Vector2(897, 518)
+position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_ha12j")
 
 [node name="detector" type="Area2D" parent="." unique_id=1389533317]
@@ -108,9 +106,9 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detector" unique_id=2049082566]
 visible = false
-position = Vector2(940, 527)
+position = Vector2(6.3750114, -21.125)
 shape = SubResource("CircleShape2D_m1bsk")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=827908754]
-position = Vector2(905, 495)
+position = Vector2(7.3750114, -24.125)
 target_position = Vector2(-500, 0)

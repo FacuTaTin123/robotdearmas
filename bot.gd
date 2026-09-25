@@ -105,7 +105,7 @@ func _physics_process(delta: float) -> void:
 
 	if raycast.is_colliding() and is_on_floor():
 
-		print("detecte: ", raycast.get_collider().name)
+		print("he podido detectar ", raycast.get_collider().name)
 
 		posicion_antes_del_salto = global_position.x
 

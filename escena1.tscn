@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cwufghkv5uy4b" path="res://plataforma.png" id="4_v6bpe"]
 [ext_resource type="Script" uid="uid://cyay8u532ubd6" path="res://canvas_layer.gd" id="5_6f2m1"]
 [ext_resource type="PackedScene" uid="uid://t8bvx6hkd2pw" path="res://bot.tscn" id="6_mpoy4"]
+[ext_resource type="Script" uid="uid://spga7qdy54jh" path="res://spawner.gd" id="7_mpoy4"]
+[ext_resource type="Script" uid="uid://c75h7xswate6c" path="res://spawner_municion.gd" id="8_6f2m1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v6bpe"]
 atlas = ExtResource("3_v6bpe")
@@ -231,7 +233,7 @@ theme_override_font_sizes/font_size = 21
 theme_override_styles/background = SubResource("StyleBoxFlat_m06ph")
 theme_override_styles/fill = SubResource("StyleBoxFlat_mpoy4")
 max_value = 10.0
-value = 5.0
+value = 10.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="CanvasLayer/BarraMunicion" unique_id=1596750006]
@@ -256,15 +258,35 @@ position = Vector2(1148, 500)
 [node name="punto a" type="Marker2D" parent="." unique_id=1846775587]
 position = Vector2(49, 515)
 
-[node name="Spawner" type="Node" parent="." unique_id=1559129097]
+[node name="Spawner" type="Node" parent="." unique_id=1559129097 node_paths=PackedStringArray("punto_patrulla_a", "punto_patrulla_b")]
+script = ExtResource("7_mpoy4")
+punto_patrulla_a = NodePath("../punto a")
+punto_patrulla_b = NodePath("../punto b")
+tiempo_entre_apariciones = 2.0
+bots_para_ganar = 20
 
 [node name="TimerSpawn" type="Timer" parent="Spawner" unique_id=778886304]
 
 [node name="SpawnPoint1" type="Marker2D" parent="." unique_id=1237074615]
-position = Vector2(105, 172)
+position = Vector2(116, 199)
 
 [node name="SpawnPoint2" type="Marker2D" parent="." unique_id=645618282]
-position = Vector2(1084, 173)
+position = Vector2(128, 345)
 
 [node name="SpawnPoint3" type="Marker2D" parent="." unique_id=1111459138]
-position = Vector2(108, 306)
+position = Vector2(1077, 191)
+
+[node name="SpawnPoint4" type="Marker2D" parent="." unique_id=1486267803]
+position = Vector2(1073, 370)
+
+[node name="PuntoMunicion1" type="Marker2D" parent="." unique_id=132975953]
+position = Vector2(413, 314)
+
+[node name="PuntoMunicion2" type="Marker2D" parent="." unique_id=424681867]
+position = Vector2(792, 203)
+
+[node name="SpawnerMunicion" type="Node" parent="." unique_id=1444001846]
+script = ExtResource("8_6f2m1")
+tiempo_entre_apariciones = 8.0
+
+[node name="TimerMunicion" type="Timer" parent="SpawnerMunicion" unique_id=1456518011]

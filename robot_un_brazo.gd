@@ -22,7 +22,9 @@ var estaba_en_el_aire = false
 
 @onready var barra_municion = get_node("../CanvasLayer/BarraMunicion")
 
-
+func _ready() -> void:
+	add_to_group("jugador")
+	
 func recibir_daño(daño: int):
 	vida -= daño
 	vida = max(vida, 0)
