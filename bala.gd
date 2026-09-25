@@ -18,4 +18,4 @@ func _on_body_entered(body: Node2D) -> void:
 	if is_instance_valid(body) and body.is_in_group("bots"):
 		if body.has_method("recibir_daño"):
 			body.recibir_daño(daño)
-		queue_free()
+		call_deferred("queue_free")

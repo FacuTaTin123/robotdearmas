@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://bxbvfa3221klf"]
+
+[ext_resource type="Script" uid="uid://cyay8u532ubd6" path="res://canvas_layer.gd" id="1_k5de2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6bpe"]
+bg_color = Color(0, 0.35686275, 0.011764706, 0.36078432)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6f2m1"]
+bg_color = Color(0, 0.23921569, 0.043137256, 0.61960787)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m06ph"]
+bg_color = Color(0, 0.29842785, 0.5965557, 0.45882353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpoy4"]
+bg_color = Color(0.11327134, 0.11999545, 0.48309848, 0.4392157)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1433902688]
+script = ExtResource("1_k5de2")
+
+[node name="BarraVida" type="ProgressBar" parent="." unique_id=1379098998]
+offset_left = 274.0
+offset_top = 9.0
+offset_right = 566.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1.0107458e-06, 0.5313994, 1.0588765e-06, 1)
+theme_override_font_sizes/font_size = 21
+theme_override_styles/background = SubResource("StyleBoxFlat_v6bpe")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6f2m1")
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="BarraVida" unique_id=1911426392]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 126.0
+offset_top = 6.0
+offset_right = -126.0
+offset_bottom = -5.0
+horizontal_alignment = 1
+
+[node name="BarraMunicion" type="ProgressBar" parent="." unique_id=1969512836]
+offset_left = 586.0
+offset_top = 9.0
+offset_right = 878.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0.5568628, 1)
+theme_override_font_sizes/font_size = 21
+theme_override_styles/background = SubResource("StyleBoxFlat_m06ph")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mpoy4")
+max_value = 10.0
+value = 10.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="BarraMunicion" unique_id=1081305336]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 126.0
+offset_top = 6.0
+offset_right = -126.0
+offset_bottom = -5.0
+grow_vertical = 2
+horizontal_alignment = 1

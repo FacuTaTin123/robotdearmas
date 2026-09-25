@@ -43,14 +43,13 @@ func recibir_daño(daño: int) -> void:
 	if vida <= 0:
 		morir()
 
-
 func morir() -> void:
 	if muerto:
 		return
 
 	muerto = true
 	murio.emit()
-	queue_free()
+	call_deferred("queue_free")
 
 func _physics_process(delta: float) -> void:
 

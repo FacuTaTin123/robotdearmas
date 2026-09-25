@@ -5,9 +5,10 @@ extends Node
 @export var punto_patrulla_a: Marker2D
 @export var punto_patrulla_b: Marker2D
 @export var tiempo_entre_apariciones: float = 5.0
-@export var bots_para_ganar: int = 10
+@export var bots_para_ganar: int = 20
 
 var bots_eliminados: int = 0
+var bots_creados: int = 0
 var juego_terminado: bool = false
 
 @onready var timer_spawn: Timer = $TimerSpawn
@@ -15,7 +16,7 @@ var juego_terminado: bool = false
 func _ready() -> void:
 	print("SPAWNER: _ready ejecutado")
 
-	puntos_de_spawn = [$"../SpawnPoint1", $"../SpawnPoint2", $"../SpawnPoint3", $"../SpawnPoint4"]
+	puntos_de_spawn = [$"../SpawnPoint1", $"../SpawnPoint2", $"../SpawnPoint3", $"../SpawnPoint4", $"../SpawnPoint5", $"../SpawnPoint6", $"../SpawnPoint7"]
 	print("SPAWNER: puntos cargados = ", puntos_de_spawn.size())
 
 	timer_spawn.wait_time = tiempo_entre_apariciones
@@ -29,11 +30,14 @@ func _on_timer_spawn_timeout() -> void:
 	spawnear_bot()
 
 func spawnear_bot() -> void:
-	print("SPAWNER: spawnear_bot llamado")
-
 	if puntos_de_spawn.is_empty():
-		print("SPAWNER: puntos_de_spawn vacío, corto acá")
 		return
+
+	if bots_creados >= bots_para_ganar:
+		timer_spawn.stop()
+		return
+
+	bots_creados += 1
 
 	var punto = puntos_de_spawn[randi() % puntos_de_spawn.size()]
 	var bot = escena_bot.instantiate()
@@ -52,4 +56,4 @@ func _on_bot_murio() -> void:
 	if bots_eliminados >= bots_para_ganar:
 		juego_terminado = true
 		timer_spawn.stop()
-		print("GANASTE")
+		get_tree().change_scene_to_file("res://escena2.tscn")
