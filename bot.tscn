@@ -87,6 +87,7 @@ radius = 267.0
 
 [node name="bot" type="CharacterBody2D" unique_id=116251678]
 position = Vector2(903, 525)
+collision_layer = 3
 script = ExtResource("1_mo174")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1309546733]

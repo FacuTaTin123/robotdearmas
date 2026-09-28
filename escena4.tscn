@@ -11,10 +11,10 @@
 size = Vector2(1162, 61)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7gg3"]
-size = Vector2(24.25, 645.5)
+size = Vector2(24.25, 836)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2vyh"]
-size = Vector2(23, 655)
+size = Vector2(29, 813.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m0e12"]
 size = Vector2(171.75, 17.5)
@@ -92,11 +92,11 @@ position = Vector2(576, 617.5)
 shape = SubResource("RectangleShape2D_p20v1")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="pisos" unique_id=393133939]
-position = Vector2(1143.875, 320.25)
+position = Vector2(1143.875, 225)
 shape = SubResource("RectangleShape2D_n7gg3")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="pisos" unique_id=1901866996]
-position = Vector2(15.5, 320)
+position = Vector2(12.5, 240.75)
 shape = SubResource("RectangleShape2D_c2vyh")
 
 [node name="robot_un_brazo" parent="." unique_id=1289626739 instance=ExtResource("2_6wm37")]
@@ -202,6 +202,7 @@ shape = SubResource("RectangleShape2D_t617m")
 one_way_collision = true
 
 [node name="bot" parent="." unique_id=116251678 node_paths=PackedStringArray("punto_a", "punto_b") instance=ExtResource("4_rgary")]
+position = Vector2(220, 358)
 punto_a = NodePath("../punto a")
 punto_b = NodePath("../punto b")
 
@@ -216,6 +217,7 @@ script = ExtResource("5_hcabo")
 punto_patrulla_a = NodePath("../punto a")
 punto_patrulla_b = NodePath("../punto b")
 tiempo_entre_apariciones = 2.0
+siguiente_escena = "uid://uqb6pkmsi8w4"
 
 [node name="TimerSpawn" type="Timer" parent="Spawner" unique_id=1962698274]
 

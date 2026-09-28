@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cb01uq4evi56u" path="res://escenario 3.png" id="1_avrds"]
 [ext_resource type="PackedScene" uid="uid://tjfy6rmfcbjk" path="res://robot_un_brazo.tscn" id="2_mwqcs"]
 [ext_resource type="PackedScene" uid="uid://bxbvfa3221klf" path="res://HUD.tscn" id="3_hwsfl"]
-[ext_resource type="Texture2D" uid="uid://bewuixt856jwo" path="res://plataforma2.png" id="4_avrds"]
+[ext_resource type="Texture2D" uid="uid://bppo6ydf3fq0d" path="res://plataforma3.png" id="4_avrds"]
 [ext_resource type="PackedScene" uid="uid://t8bvx6hkd2pw" path="res://bot.tscn" id="5_g508i"]
 [ext_resource type="Script" uid="uid://spga7qdy54jh" path="res://spawner.gd" id="6_xgq2r"]
 [ext_resource type="Script" uid="uid://c75h7xswate6c" path="res://spawner_municion.gd" id="7_4mfif"]
@@ -12,13 +12,13 @@
 size = Vector2(1162, 73)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ishte"]
-size = Vector2(24.25, 645.5)
+size = Vector2(24.25, 948)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55ofj"]
-size = Vector2(23, 655)
+size = Vector2(25, 1012.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4e718"]
-size = Vector2(249, 17.5)
+size = Vector2(230.5, 17.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lk6em"]
 size = Vector2(191.25, 12.5)
@@ -78,11 +78,11 @@ position = Vector2(576, 611.5)
 shape = SubResource("RectangleShape2D_jvlvo")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="pisos" unique_id=874109461]
-position = Vector2(1143.875, 320.25)
+position = Vector2(1143.875, 169)
 shape = SubResource("RectangleShape2D_ishte")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="pisos" unique_id=1392223272]
-position = Vector2(15.5, 320)
+position = Vector2(14.5, 141.25)
 shape = SubResource("RectangleShape2D_55ofj")
 
 [node name="robot_un_brazo" parent="." unique_id=1289626739 instance=ExtResource("2_mwqcs")]
@@ -93,13 +93,13 @@ position = Vector2(47, -47)
 [node name="plataformas" type="StaticBody2D" parent="." unique_id=960610714]
 
 [node name="Sprite2D3" type="Sprite2D" parent="plataformas" unique_id=1664985507]
-position = Vector2(581, 183.00002)
-scale = Vector2(0.41854352, 0.28050005)
+position = Vector2(581, 112.15951)
+scale = Vector2(0.41854352, 0.72885776)
 texture = ExtResource("4_avrds")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="plataformas" unique_id=1544539560]
 visible = false
-position = Vector2(582.5, 182)
+position = Vector2(580.75, 178)
 shape = SubResource("RectangleShape2D_4e718")
 one_way_collision = true
 
@@ -173,7 +173,6 @@ one_way_collision = true
 visible = false
 position = Vector2(547.25, 557)
 shape = SubResource("RectangleShape2D_nbjm2")
-one_way_collision = true
 
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="plataformas" unique_id=362970830]
 visible = false
@@ -182,6 +181,7 @@ shape = SubResource("RectangleShape2D_o6gf5")
 one_way_collision = true
 
 [node name="bot" parent="." unique_id=116251678 node_paths=PackedStringArray("punto_a", "punto_b") instance=ExtResource("5_g508i")]
+position = Vector2(953, 377)
 punto_a = NodePath("../punto a")
 punto_b = NodePath("../punto b")
 

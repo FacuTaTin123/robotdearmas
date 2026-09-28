@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chg14nxeuti50"
-path="res://.godot/imported/escenario 6.jpg-931d5c309d90c37fa22f2068bf263991.ctex"
+uid="uid://bppo6ydf3fq0d"
+path="res://.godot/imported/plataforma3.png-fb008ab246149a007e248fafef31e1bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://escenario 6.jpg"
-dest_files=["res://.godot/imported/escenario 6.jpg-931d5c309d90c37fa22f2068bf263991.ctex"]
+source_file="res://plataforma3.png"
+dest_files=["res://.godot/imported/plataforma3.png-fb008ab246149a007e248fafef31e1bb.ctex"]
 
 [params]
 

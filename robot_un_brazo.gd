@@ -19,6 +19,7 @@ var w_presionada_anteriormente = false
 var velocidad_caida_maxima: float = 0.0
 var daño_caida: int = 20
 var estaba_en_el_aire = false
+var atravesando_plataforma: bool = false
 
 @onready var barra_municion = get_node("../CanvasLayer/BarraMunicion")
 
@@ -77,12 +78,14 @@ func _physics_process(delta: float) -> void:
 		$Sprite2D.flip_h = false
 		mirando_derecha = true
 
-	# ANIMACIÓN
 	if direccion_x != 0 and is_on_floor():
 		$Sprite2D.play("walk")
 	else:
 		$Sprite2D.play("idle")
 
+	if Input.is_key_pressed(KEY_S) and is_on_floor() and not atravesando_plataforma:
+		atravesar_plataforma()
+		
 	var w_presionada = Input.is_key_pressed(KEY_W)
 
 	if w_presionada and not w_presionada_anteriormente:
@@ -112,6 +115,14 @@ func _physics_process(delta: float) -> void:
 		estaba_en_el_aire = false
 		velocidad_caida_maxima = 0.0
 
+func atravesar_plataforma() -> void:
+	atravesando_plataforma = true
+	set_collision_mask_value(2, false)
+
+	await get_tree().create_timer(0.3).timeout
+
+	set_collision_mask_value(2, true)
+	atravesando_plataforma = false
 
 func disparar() -> void:
 	if barra_municion.value < costo_municion_por_disparo:

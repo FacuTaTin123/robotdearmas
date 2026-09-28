@@ -13,10 +13,10 @@
 size = Vector2(1162, 87)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2b3dc"]
-size = Vector2(24.25, 645.5)
+size = Vector2(22.25, 836)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yp482"]
-size = Vector2(23, 655)
+size = Vector2(35, 864.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbjm2"]
 size = Vector2(183.5, 17.5)
@@ -59,11 +59,11 @@ position = Vector2(576, 604.5)
 shape = SubResource("RectangleShape2D_m1bsk")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="pisos" unique_id=609212340]
-position = Vector2(1143.875, 320.25)
+position = Vector2(1142.875, 225)
 shape = SubResource("RectangleShape2D_2b3dc")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="pisos" unique_id=1545918022]
-position = Vector2(15.5, 320)
+position = Vector2(9.5, 215.25)
 shape = SubResource("RectangleShape2D_yp482")
 
 [node name="robot_un_brazo" parent="." unique_id=1289626739 instance=ExtResource("2_iilfr")]
@@ -137,6 +137,7 @@ shape = SubResource("RectangleShape2D_m0qw1")
 one_way_collision = true
 
 [node name="bot" parent="." unique_id=116251678 node_paths=PackedStringArray("punto_a", "punto_b") instance=ExtResource("5_0vg4t")]
+position = Vector2(691, 490)
 punto_a = NodePath("../punto a")
 punto_b = NodePath("../punto b")
 
