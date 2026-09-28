@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://mtgmsjwf5hpm"]
+
+[ext_resource type="Script" uid="uid://domfe6qd4rmu" path="res://bala_enemiga.gd" id="1_d0fuj"]
+[ext_resource type="Texture2D" uid="uid://ci15dm6c6xy7x" path="res://bala.png" id="2_o88jd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84jh0"]
+size = Vector2(16.75, 11.25)
+
+[node name="BalaEnemiga" type="Area2D" unique_id=1423838425]
+script = ExtResource("1_d0fuj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=423213635]
+scale = Vector2(0.043499995, 0.060250003)
+texture = ExtResource("2_o88jd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=282134381]
+position = Vector2(-0.625, -0.375)
+shape = SubResource("RectangleShape2D_84jh0")

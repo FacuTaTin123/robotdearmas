@@ -2,9 +2,13 @@ extends CharacterBody2D
 
 signal murio
 
+const BalaEnemiga = preload("res://BalaEnemiga.tscn")
+
 @export var velocidad: float = 100.0
 @export var gravedad: float = 1200.0
 @export var vida_maxima: int = 100
+@export var distancia_disparo: float = 500.0
+@export var tiempo_entre_disparos: float = 1.5
 
 @export var punto_a: Marker2D
 @export var punto_b: Marker2D
@@ -17,6 +21,7 @@ var direccion = -1
 var comprobando_obstaculo = false
 var posicion_antes_del_salto = 0.0
 var velocidad_salto = -450.0
+var cooldown_disparo: float = 0.0
 
 @onready var raycast: RayCast2D = $RayCast2D
 
@@ -43,6 +48,7 @@ func recibir_daño(daño: int) -> void:
 	if vida <= 0:
 		morir()
 
+
 func morir() -> void:
 	if muerto:
 		return
@@ -51,6 +57,33 @@ func morir() -> void:
 	murio.emit()
 	call_deferred("queue_free")
 
+
+func intentar_disparar(delta: float) -> void:
+	cooldown_disparo -= delta
+	if cooldown_disparo > 0:
+		return
+
+	var jugador = get_tree().get_first_node_in_group("jugador")
+	if jugador == null:
+		return
+
+	var forma_jugador = jugador.get_node_or_null("CollisionShape2D")
+	if forma_jugador == null:
+		return
+
+	var destino: Vector2 = forma_jugador.global_position
+	var origen: Vector2 = $CollisionShape2D.global_position
+
+	if origen.distance_to(destino) > distancia_disparo:
+		return
+
+	cooldown_disparo = tiempo_entre_disparos
+
+	var bala = BalaEnemiga.instantiate()
+	bala.direccion = (destino - origen).normalized()
+	get_parent().add_child(bala)
+	bala.global_position = origen
+
 func _physics_process(delta: float) -> void:
 
 	if muerto:
@@ -58,6 +91,8 @@ func _physics_process(delta: float) -> void:
 
 	if not is_instance_valid(objetivo):
 		return
+
+	intentar_disparar(delta)
 
 	if not is_on_floor():
 		velocity.y += gravedad * delta
@@ -104,8 +139,6 @@ func _physics_process(delta: float) -> void:
 
 	if raycast.is_colliding() and is_on_floor():
 
-		print("he podido detectar ", raycast.get_collider().name)
-
 		posicion_antes_del_salto = global_position.x
 
 		velocity.y = velocidad_salto
@@ -124,4 +157,4 @@ func _physics_process(delta: float) -> void:
 			if objetivo == punto_a:
 				objetivo = punto_b
 			else:
-				objetivo = punto_a
+				objetivo

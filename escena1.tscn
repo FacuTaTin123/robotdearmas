@@ -70,50 +70,57 @@ shape = SubResource("RectangleShape2D_sgs7o")
 
 [node name="plataformas" type="StaticBody2D" parent="." unique_id=1570878040]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="plataformas" unique_id=2068824492]
-visible = false
-position = Vector2(770, 258)
-shape = SubResource("RectangleShape2D_2b3dc")
-
 [node name="Sprite2D2" type="Sprite2D" parent="plataformas" unique_id=289631686]
 position = Vector2(767.99994, 262)
 scale = Vector2(0.5810811, 0.43866667)
 texture = ExtResource("4_v6bpe")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="plataformas" unique_id=641877118]
-visible = false
-position = Vector2(400, 368)
-shape = SubResource("RectangleShape2D_2b3dc")
 
 [node name="Sprite2D" type="Sprite2D" parent="plataformas" unique_id=805508452]
 position = Vector2(398.99997, 373)
 scale = Vector2(0.5810811, 0.43866667)
 texture = ExtResource("4_v6bpe")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="plataformas" unique_id=2068824492]
+visible = false
+position = Vector2(770, 258)
+shape = SubResource("RectangleShape2D_2b3dc")
+one_way_collision = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plataformas" unique_id=641877118]
+visible = false
+position = Vector2(400, 368)
+shape = SubResource("RectangleShape2D_2b3dc")
+one_way_collision = true
+
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="plataformas" unique_id=1733695523]
 visible = false
 position = Vector2(93, 400)
 shape = SubResource("RectangleShape2D_tyfpf")
+one_way_collision = true
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="plataformas" unique_id=642463158]
 visible = false
 position = Vector2(113.5, 95)
 shape = SubResource("RectangleShape2D_nbjm2")
+one_way_collision = true
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="plataformas" unique_id=1477314561]
 visible = false
 position = Vector2(91.5, 260)
 shape = SubResource("RectangleShape2D_o6gf5")
+one_way_collision = true
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="plataformas" unique_id=2103532424]
 visible = false
 position = Vector2(1096, 263)
 shape = SubResource("RectangleShape2D_qpnmi")
+one_way_collision = true
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="plataformas" unique_id=249430707]
 visible = false
 position = Vector2(1072.75, 440.5)
 shape = SubResource("RectangleShape2D_t617m")
+one_way_collision = true
 
 [node name="CanvasLayer" parent="." unique_id=1433902688 instance=ExtResource("4_mpoy4")]
 
@@ -132,6 +139,7 @@ script = ExtResource("7_mpoy4")
 punto_patrulla_a = NodePath("../punto a")
 punto_patrulla_b = NodePath("../punto b")
 tiempo_entre_apariciones = 2.0
+siguiente_escena = "uid://cipqb6wu0odx2"
 
 [node name="TimerSpawn" type="Timer" parent="Spawner" unique_id=778886304]
 

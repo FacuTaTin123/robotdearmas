@@ -4,8 +4,10 @@ extends Node
 @export var puntos_de_spawn: Array[Marker2D] = []
 @export var punto_patrulla_a: Marker2D
 @export var punto_patrulla_b: Marker2D
-@export var tiempo_entre_apariciones: float = 5.0
-@export var bots_para_ganar: int = 20
+@export var tiempo_entre_apariciones: float = 7.0
+
+@export var bots_para_ganar: int = 15
+@export_file("*.tscn") var siguiente_escena: String = ""
 
 var bots_eliminados: int = 0
 var bots_creados: int = 0
@@ -14,10 +16,8 @@ var juego_terminado: bool = false
 @onready var timer_spawn: Timer = $TimerSpawn
 
 func _ready() -> void:
-	print("SPAWNER: _ready ejecutado")
 
 	puntos_de_spawn = [$"../SpawnPoint1", $"../SpawnPoint2", $"../SpawnPoint3", $"../SpawnPoint4", $"../SpawnPoint5", $"../SpawnPoint6", $"../SpawnPoint7"]
-	print("SPAWNER: puntos cargados = ", puntos_de_spawn.size())
 
 	timer_spawn.wait_time = tiempo_entre_apariciones
 	timer_spawn.timeout.connect(_on_timer_spawn_timeout)
@@ -56,4 +56,7 @@ func _on_bot_murio() -> void:
 	if bots_eliminados >= bots_para_ganar:
 		juego_terminado = true
 		timer_spawn.stop()
-		get_tree().change_scene_to_file("res://escena2.tscn")
+		if siguiente_escena == "":
+			print("GANASTE (no hay siguiente escena configurada)")
+		else:
+			get_tree().change_scene_to_file(siguiente_escena)
