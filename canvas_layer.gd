@@ -5,6 +5,7 @@ extends CanvasLayer
 
 @onready var barra_municion = $BarraMunicion
 @onready var texto_municion = $BarraMunicion/Label
+@onready var barra_vida_jefe = $BarraVidaJefe
 
 func _process(_delta):
 	texto_vida.text = str(int(barra_vida.value))

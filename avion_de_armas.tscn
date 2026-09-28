@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dwa58v2t55ebq"]
+
+[ext_resource type="Texture2D" uid="uid://da7l6dkg67vbx" path="res://avion de armas.png" id="1_13caa"]
+[ext_resource type="Script" uid="uid://l0vaf5dc78g4" path="res://avion_de_armas.gd" id="1_76lb6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1ohx"]
+size = Vector2(190.25, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mq2to"]
+size = Vector2(72, 55.5)
+
+[node name="AvionDeArmas" type="CharacterBody2D" unique_id=161494223]
+collision_mask = 0
+script = ExtResource("1_76lb6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=908138048]
+scale = Vector2(0.1529948, 0.14941409)
+texture = ExtResource("1_13caa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=484260609]
+position = Vector2(7, -21)
+shape = SubResource("RectangleShape2D_x1ohx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1696525140]
+position = Vector2(49, 32)
+shape = SubResource("RectangleShape2D_mq2to")

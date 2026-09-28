@@ -3,13 +3,14 @@ extends CharacterBody2D
 const Bala = preload("res://Bala.tscn")
 
 var mirando_derecha: bool = true
-var disparar_presionada_anteriormente: bool = false
+var cooldown_disparo: float = 0.0
 
 @export var velocidad: float = 300.0
 @export var fuerza_salto: float = -550.0
 @export var gravedad: float = 1200.0
 @export var corte_salto: float = -350.0
 @export var costo_municion_por_disparo: int = 1
+@export var tiempo_entre_disparos: float = 0.2
 
 var vida: int = 100
 var recibiendo_daño = false
@@ -98,12 +99,11 @@ func _physics_process(delta: float) -> void:
 
 	w_presionada_anteriormente = w_presionada
 
-	var disparar_presionado = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
+	cooldown_disparo -= delta
 
-	if disparar_presionado and not disparar_presionada_anteriormente:
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and cooldown_disparo <= 0:
 		disparar()
-
-	disparar_presionada_anteriormente = disparar_presionado
+		cooldown_disparo = tiempo_entre_disparos
 
 	move_and_slide()
 

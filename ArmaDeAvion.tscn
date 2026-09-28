@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c1k1p2a27tnfc"]
+
+[ext_resource type="Script" uid="uid://domfe6qd4rmu" path="res://bala_enemiga.gd" id="1_e471i"]
+[ext_resource type="Texture2D" uid="uid://sf4nyajgbmwq" path="res://arma.png" id="2_e471i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84jh0"]
+size = Vector2(34.25, 19.3125)
+
+[node name="BalaEnemiga" type="Area2D" unique_id=1423838425]
+script = ExtResource("1_e471i")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=423213635]
+position = Vector2(1.1920929e-07, 0)
+rotation = -3.1415927
+scale = Vector2(0.08195344, 0.06985294)
+texture = ExtResource("2_e471i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=282134381]
+shape = SubResource("RectangleShape2D_84jh0")

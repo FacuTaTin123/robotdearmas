@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://doy381al5lbgj"]
 
+[ext_resource type="PackedScene" uid="uid://dwa58v2t55ebq" path="res://avion_de_armas.tscn" id="1_68ig8"]
 [ext_resource type="Texture2D" uid="uid://clqrudnulta03" path="res://escenario 6.png" id="1_ckl7p"]
 [ext_resource type="PackedScene" uid="uid://tjfy6rmfcbjk" path="res://robot_un_brazo.tscn" id="2_68ig8"]
 [ext_resource type="PackedScene" uid="uid://bxbvfa3221klf" path="res://HUD.tscn" id="3_gssne"]
@@ -20,13 +21,13 @@ size = Vector2(190.875, 17.75)
 size = Vector2(178.5, 12.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4u4sw"]
-size = Vector2(179.875, 19.5)
+size = Vector2(188.875, 19.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nrefg"]
 size = Vector2(320.5, 45.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xyhca"]
-size = Vector2(209.75, 19.125)
+size = Vector2(146.875, 19.125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fmarg"]
 size = Vector2(401, 105)
@@ -78,6 +79,11 @@ texture = ExtResource("1_ckl7p")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="AvionDeArmas" parent="." unique_id=161494223 node_paths=PackedStringArray("punto_a", "punto_b") instance=ExtResource("1_68ig8")]
+position = Vector2(912, 98)
+punto_a = NodePath("../punto a")
+punto_b = NodePath("../punto b")
+
 [node name="pisos" type="StaticBody2D" parent="." unique_id=760611868]
 visible = false
 
@@ -121,7 +127,7 @@ one_way_collision = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plataformas" unique_id=688143554]
 visible = false
-position = Vector2(258.0625, 289.25)
+position = Vector2(262.5625, 289.25)
 shape = SubResource("RectangleShape2D_4u4sw")
 one_way_collision = true
 
@@ -133,7 +139,7 @@ one_way_collision = true
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="plataformas" unique_id=780248036]
 visible = false
-position = Vector2(151, 366)
+position = Vector2(119.5625, 366)
 shape = SubResource("RectangleShape2D_xyhca")
 one_way_collision = true
 
@@ -212,14 +218,14 @@ shape = SubResource("RectangleShape2D_2c7dp")
 one_way_collision = true
 
 [node name="punto a" type="Marker2D" parent="." unique_id=1277199578]
-position = Vector2(5, 517)
+position = Vector2(107, 64)
 
 [node name="punto b" type="Marker2D" parent="." unique_id=1477988465]
-position = Vector2(1152, 514)
+position = Vector2(1028, 67)
 
 [node name="SpawnerMunicion" type="Node" parent="." unique_id=1119923510]
 script = ExtResource("6_xbof1")
-tiempo_entre_apariciones = 8.0
+tiempo_entre_apariciones = 5.0
 
 [node name="TimerMunicion" type="Timer" parent="SpawnerMunicion" unique_id=65380001]
 

@@ -7,6 +7,7 @@ extends Area2D
 var direccion: Vector2 = Vector2.LEFT
 
 func _ready() -> void:
+	rotation = direccion.angle()
 	body_entered.connect(_on_body_entered)
 	await get_tree().create_timer(tiempo_de_vida).timeout
 	queue_free()
