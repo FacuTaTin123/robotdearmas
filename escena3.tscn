@@ -196,6 +196,7 @@ script = ExtResource("6_xgq2r")
 punto_patrulla_a = NodePath("../punto a")
 punto_patrulla_b = NodePath("../punto b")
 tiempo_entre_apariciones = 2.0
+siguiente_escena = "escena4.tscn"
 
 [node name="TimerSpawn" type="Timer" parent="Spawner" unique_id=699067690]
 
