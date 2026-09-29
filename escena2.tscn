@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://t8bvx6hkd2pw" path="res://bot.tscn" id="5_0vg4t"]
 [ext_resource type="Script" uid="uid://spga7qdy54jh" path="res://spawner.gd" id="6_3xgr4"]
 [ext_resource type="Script" uid="uid://c75h7xswate6c" path="res://spawner_municion.gd" id="7_dxnnp"]
+[ext_resource type="Script" uid="uid://c18ghtw1bb5nu" path="res://spawner_vida.gd" id="9_sdagl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1bsk"]
 size = Vector2(1162, 87)
@@ -191,3 +192,14 @@ position = Vector2(610, 341)
 
 [node name="PuntoMunicion3" type="Marker2D" parent="." unique_id=46379552]
 position = Vector2(854, 188)
+
+[node name="SpawnerVida" type="Node" parent="." unique_id=781088394]
+script = ExtResource("9_sdagl")
+
+[node name="TimerVida" type="Timer" parent="SpawnerVida" unique_id=1829689402]
+
+[node name="PuntoVida1" type="Marker2D" parent="." unique_id=2128012717]
+position = Vector2(846, 313)
+
+[node name="PuntoVida2" type="Marker2D" parent="." unique_id=705239483]
+position = Vector2(386, 317)

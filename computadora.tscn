@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c3vq0um51fd8a"]
+
+[ext_resource type="Script" uid="uid://cy6fw7sk5gqax" path="res://curacion.gd" id="1_8o1v6"]
+[ext_resource type="Texture2D" uid="uid://ca003yaum26t3" path="res://computadora-curacion.png" id="1_667ip"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1bsk"]
+size = Vector2(35, 41)
+
+[node name="computadora" type="Area2D" unique_id=740315138]
+script = ExtResource("1_8o1v6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=37089168]
+position = Vector2(0, 2.3841858e-07)
+scale = Vector2(0.12850003, 0.12450004)
+texture = ExtResource("1_667ip")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=229063033]
+shape = SubResource("RectangleShape2D_m1bsk")

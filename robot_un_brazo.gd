@@ -50,8 +50,13 @@ func recibir_daño(daño: int):
 
 func morir():
 	print("Se acabo")
-	queue_free()
+	get_tree().change_scene_to_file(ProjectSettings.get_setting("application/run/main_scene"))
+			
+func curar(cantidad: int) -> void:
+	vida += cantidad
+	vida = min(vida, 100)
 
+	get_node("../CanvasLayer/BarraVida").value = vida
 
 func _physics_process(delta: float) -> void:
 
