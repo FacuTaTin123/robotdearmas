@@ -47,7 +47,6 @@ func recibir_daño(daño: int):
 	if vida <= 0:
 		morir()
 
-
 func morir():
 	print("Se acabo")
 	get_tree().change_scene_to_file(ProjectSettings.get_setting("application/run/main_scene"))

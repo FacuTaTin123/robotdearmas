@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bxbvfa3221klf"]
 
 [ext_resource type="Script" uid="uid://cyay8u532ubd6" path="res://canvas_layer.gd" id="1_k5de2"]
+[ext_resource type="Texture2D" uid="uid://c6goe2ig0vwe6" path="res://mira.png" id="2_efote"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6bpe"]
 bg_color = Color(0, 0.35686275, 0.011764706, 0.36078432)
@@ -87,3 +88,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_mq2to")
 theme_override_styles/fill = SubResource("StyleBoxFlat_x1ohx")
 max_value = 1000.0
 value = 1000.0
+
+[node name="Mira" type="Sprite2D" parent="." unique_id=154271919]
+scale = Vector2(0.079669334, 0.07709195)
+texture = ExtResource("2_efote")

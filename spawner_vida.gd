@@ -1,7 +1,7 @@
 extends Node
 
 @export var escanea_vida: PackedScene = preload("res://computadora.tscn")
-@export var tiempo_entre_apariciones: float = 15.0
+@export var tiempo_entre_apariciones: float = 12.0
 
 var puntos_de_spawn: Array[Marker2D] = []
 

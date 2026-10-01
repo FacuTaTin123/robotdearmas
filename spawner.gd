@@ -4,7 +4,7 @@ extends Node
 @export var puntos_de_spawn: Array[Marker2D] = []
 @export var punto_patrulla_a: Marker2D
 @export var punto_patrulla_b: Marker2D
-@export var tiempo_entre_apariciones: float = 7.0
+@export var tiempo_entre_apariciones: float = 6.0
 
 @export var bots_para_ganar: int = 15
 @export_file("*.tscn") var siguiente_escena: String = ""
