@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c67m4vqytxknn"
-path="res://.godot/imported/robot_con_brazos_de_armas.png-447a3ce13d1718c75a46542cf488d45c.ctex"
+uid="uid://dd06330tsgr6w"
+path="res://.godot/imported/mesa.png-9a7dcab07d06434c7b186e3ee59c2c29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://robot_con_brazos_de_armas.png"
-dest_files=["res://.godot/imported/robot_con_brazos_de_armas.png-447a3ce13d1718c75a46542cf488d45c.ctex"]
+source_file="res://mesa.png"
+dest_files=["res://.godot/imported/mesa.png-9a7dcab07d06434c7b186e3ee59c2c29.ctex"]
 
 [params]
 

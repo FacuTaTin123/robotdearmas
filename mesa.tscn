@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://chbkwmrsuvqp3"]
+
+[ext_resource type="Texture2D" uid="uid://dd06330tsgr6w" path="res://mesa.png" id="1_0rx7m"]
+[ext_resource type="Texture2D" uid="uid://d13isd5j0faem" path="res://mesa rota.png" id="2_0f5q7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1bsk"]
+size = Vector2(299, 122)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2b3dc"]
+size = Vector2(362, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60ub5"]
+atlas = ExtResource("1_0rx7m")
+region = Rect2(0, 0, 612, 408)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym3nw"]
+atlas = ExtResource("2_0f5q7")
+region = Rect2(0, 0, 612, 408)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2b3dc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60ub5")
+}],
+"loop": 1,
+"name": &"intacta",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ym3nw")
+}],
+"loop": 1,
+"name": &"rota",
+"speed": 5.0
+}]
+
+[node name="mesa" type="Area2D" unique_id=909408805]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1204882276]
+position = Vector2(-1.5, 3)
+shape = SubResource("RectangleShape2D_m1bsk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=361674528]
+position = Vector2(-2, 55)
+shape = SubResource("RectangleShape2D_2b3dc")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1422681760]
+position = Vector2(-1.0000038, 1)
+scale = Vector2(0.6919934, 0.3909314)
+sprite_frames = SubResource("SpriteFrames_2b3dc")
+animation = &"intacta"

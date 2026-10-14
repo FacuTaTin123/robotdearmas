@@ -10,6 +10,7 @@ const ArmaDeAvion = preload("res://ArmaDeAvion.tscn")
 @export var distancia_disparo: float = 100000
 @export var tiempo_entre_disparos: float = 0.6
 @export var vida_maxima: int = 2000
+@export_file("*.tscn") var siguiente_escena: String = ""
 
 var objetivo: Marker2D
 var direccion: int = -1
@@ -49,6 +50,9 @@ func morir() -> void:
 	murio.emit()
 	call_deferred("queue_free")
 
+	if siguiente_escena != "":
+		get_tree().change_scene_to_file(siguiente_escena)
+		
 func _physics_process(delta: float) -> void:
 	if muerto:
 		return

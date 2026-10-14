@@ -21,7 +21,10 @@ var velocidad_caida_maxima: float = 0.0
 var daño_caida: int = 20
 var estaba_en_el_aire = false
 var atravesando_plataforma: bool = false
+var tiene_brazo: bool = false
 
+func activar_brazo() -> void:
+	tiene_brazo = true
 @onready var barra_municion = get_node("../CanvasLayer/BarraMunicion")
 
 func _ready() -> void:
@@ -84,9 +87,15 @@ func _physics_process(delta: float) -> void:
 		mirando_derecha = true
 
 	if direccion_x != 0 and is_on_floor():
-		$Sprite2D.play("walk")
+		if tiene_brazo:
+			$Sprite2D.play("caminando con alto brazo")
+		else:
+			$Sprite2D.play("walk")
 	else:
-		$Sprite2D.play("idle")
+		if tiene_brazo:
+			$Sprite2D.play("quieto con alto brazo")
+		else:
+			$Sprite2D.play("idle")
 
 	if Input.is_key_pressed(KEY_S) and is_on_floor() and not atravesando_plataforma:
 		atravesar_plataforma()

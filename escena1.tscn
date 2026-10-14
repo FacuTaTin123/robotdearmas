@@ -135,6 +135,12 @@ position = Vector2(1148, 500)
 [node name="punto a" type="Marker2D" parent="." unique_id=1846775587]
 position = Vector2(49, 515)
 
+[node name="SpawnerMunicion" type="Node" parent="." unique_id=1444001846]
+script = ExtResource("8_6f2m1")
+tiempo_entre_apariciones = 8.0
+
+[node name="TimerMunicion" type="Timer" parent="SpawnerMunicion" unique_id=1456518011]
+
 [node name="Spawner" type="Node" parent="." unique_id=1559129097 node_paths=PackedStringArray("punto_patrulla_a", "punto_patrulla_b")]
 script = ExtResource("7_mpoy4")
 punto_patrulla_a = NodePath("../punto a")
@@ -143,12 +149,6 @@ tiempo_entre_apariciones = 2.0
 siguiente_escena = "uid://cipqb6wu0odx2"
 
 [node name="TimerSpawn" type="Timer" parent="Spawner" unique_id=778886304]
-
-[node name="SpawnerMunicion" type="Node" parent="." unique_id=1444001846]
-script = ExtResource("8_6f2m1")
-tiempo_entre_apariciones = 8.0
-
-[node name="TimerMunicion" type="Timer" parent="SpawnerMunicion" unique_id=1456518011]
 
 [node name="SpawnPoint1" type="Marker2D" parent="." unique_id=1237074615]
 position = Vector2(116, 199)

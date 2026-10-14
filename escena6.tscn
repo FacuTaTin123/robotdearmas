@@ -84,6 +84,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(912, 98)
 punto_a = NodePath("../punto a")
 punto_b = NodePath("../punto b")
+siguiente_escena = "uid://dhfdt5dqctc7x"
 
 [node name="pisos" type="StaticBody2D" parent="." unique_id=760611868]
 visible = false
