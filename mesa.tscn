@@ -36,7 +36,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="mesa" type="Area2D" unique_id=909408805]
+[node name="mesa" type="StaticBody2D" unique_id=397232984]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1204882276]
 position = Vector2(-1.5, 3)
@@ -46,7 +46,7 @@ shape = SubResource("RectangleShape2D_m1bsk")
 position = Vector2(-2, 55)
 shape = SubResource("RectangleShape2D_2b3dc")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1422681760]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1422681760]
 position = Vector2(-1.0000038, 1)
 scale = Vector2(0.6919934, 0.3909314)
 sprite_frames = SubResource("SpriteFrames_2b3dc")

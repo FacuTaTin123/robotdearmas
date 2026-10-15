@@ -86,7 +86,12 @@ func _physics_process(delta: float) -> void:
 		$Sprite2D.flip_h = false
 		mirando_derecha = true
 
-	if direccion_x != 0 and is_on_floor():
+	if not is_on_floor():
+		if tiene_brazo:
+			$Sprite2D.play("alto robot saltando")
+		else:
+			$Sprite2D.play("robot saltando")
+	elif direccion_x != 0:
 		if tiene_brazo:
 			$Sprite2D.play("caminando con alto brazo")
 		else:

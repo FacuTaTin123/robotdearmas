@@ -1,6 +1,8 @@
-extends Area2D
+extends StaticBody2D
 
-@onready var sprite = $Sprite2D
+@onready var sprite = $AnimatedSprite2D
+@onready var colision1 = $CollisionShape2D
+@onready var colision2 = $CollisionShape2D2
 
 var rota: bool = false
 
@@ -16,3 +18,6 @@ func romper() -> void:
 
 	rota = true
 	sprite.play("rota")
+
+	colision1.set_deferred("disabled", true)
+	colision2.set_deferred("disabled", true)

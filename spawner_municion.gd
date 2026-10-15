@@ -1,7 +1,7 @@
 extends Node
 
 @export var escena_municion: PackedScene = preload("res://Municion.tscn")
-@export var tiempo_entre_apariciones: float = 10.0
+@export var tiempo_entre_apariciones: float = 8.0
 
 var puntos_de_spawn: Array[Marker2D] = []
 

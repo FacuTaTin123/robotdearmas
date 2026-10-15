@@ -23,6 +23,9 @@ size = Vector2(651, 56)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2b3dc"]
 size = Vector2(360.5, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1ohx"]
+size = Vector2(167.5, 38)
+
 [node name="Nivel8" type="Node2D" unique_id=66040479]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1063554214]
@@ -74,3 +77,7 @@ shape = SubResource("RectangleShape2D_m1bsk")
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="piso" unique_id=10175447]
 position = Vector2(968.75, -389)
 shape = SubResource("RectangleShape2D_2b3dc")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="piso" unique_id=877543452]
+position = Vector2(969.25, -419)
+shape = SubResource("RectangleShape2D_x1ohx")

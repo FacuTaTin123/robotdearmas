@@ -96,6 +96,7 @@ scale = Vector2(0.92816114, 0.5601983)
 sprite_frames = SubResource("SpriteFrames_m1bsk")
 animation = &"walk"
 autoplay = "idle"
+frame_progress = 0.35779372
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1601881472]
 visible = false
