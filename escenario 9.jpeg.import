@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvt7dt1b7f7kf"
-path="res://.godot/imported/municion.png-8fbabef71fdb6c8d2a2db22128e8cf1e.ctex"
+uid="uid://ci7hbqs2bi1uc"
+path="res://.godot/imported/escenario 9.jpeg-d8a76e7743af8d4df6f1b63e2093c067.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://municion.png"
-dest_files=["res://.godot/imported/municion.png-8fbabef71fdb6c8d2a2db22128e8cf1e.ctex"]
+source_file="res://escenario 9.jpeg"
+dest_files=["res://.godot/imported/escenario 9.jpeg-d8a76e7743af8d4df6f1b63e2093c067.ctex"]
 
 [params]
 

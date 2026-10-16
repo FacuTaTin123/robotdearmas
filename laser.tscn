@@ -1,0 +1,102 @@
+[gd_scene load_steps=17 format=3]
+
+[ext_resource type="Texture2D" path="res://rayo_spritesheet.png" id="1_tex"]
+[ext_resource type="Script" path="res://laser.gd" id="2_script"]
+[ext_resource type="PackedScene" path="res://impact.tscn" id="3_impact"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1"]
+atlas = ExtResource("1_tex")
+region = Rect2(0, 0, 95, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2"]
+atlas = ExtResource("1_tex")
+region = Rect2(95, 0, 95, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3"]
+atlas = ExtResource("1_tex")
+region = Rect2(190, 0, 95, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4"]
+atlas = ExtResource("1_tex")
+region = Rect2(285, 0, 95, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(70, 8)
+
+[sub_resource type="Gradient" id="Gradient_trail"]
+colors = PackedColorArray(0.72, 0.4, 1, 1, 0.55, 0.2, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1"]
+gradient = SubResource("Gradient_trail")
+
+[sub_resource type="Curve" id="Curve_1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_1"]
+curve = SubResource("Curve_1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1"]
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 20.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 40.0
+scale_min = 1.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_1")
+color = Color(0.72, 0.4, 1, 1)
+color_ramp = SubResource("GradientTexture1D_1")
+
+[sub_resource type="Gradient" id="Gradient_px"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1"]
+gradient = SubResource("Gradient_px")
+width = 3
+height = 3
+
+[node name="Laser" type="Area2D"]
+script = ExtResource("2_script")
+impact_scene = ExtResource("3_impact")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+texture_filter = 1
+position = Vector2(-35, 0)
+amount = 24
+texture = SubResource("GradientTexture2D_1")
+lifetime = 0.4
+local_coords = false
+process_material = SubResource("ParticleProcessMaterial_1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_1")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-47, -16, 95, 32)

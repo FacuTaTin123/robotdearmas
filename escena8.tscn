@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://chbkwmrsuvqp3" path="res://mesa.tscn" id="5_w0epj"]
 [ext_resource type="PackedScene" uid="uid://ly41ojkkldx6" path="res://cristal.tscn" id="6_3bu0i"]
 [ext_resource type="Script" uid="uid://dfk18r3e3chmg" path="res://cristal.gd" id="7_fph5u"]
+[ext_resource type="PackedScene" uid="uid://fkwhi70fro7q" path="res://ParedLaser.tscn" id="8_jroyd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lok0h"]
 size = Vector2(1168, 135)
@@ -81,3 +82,7 @@ shape = SubResource("RectangleShape2D_2b3dc")
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="piso" unique_id=877543452]
 position = Vector2(969.25, -419)
 shape = SubResource("RectangleShape2D_x1ohx")
+
+[node name="ParedLaser" parent="." unique_id=109519078 instance=ExtResource("8_jroyd")]
+visible = false
+siguiente_escena = "res://escena9.tscn"

@@ -137,7 +137,6 @@ position = Vector2(49, 515)
 
 [node name="SpawnerMunicion" type="Node" parent="." unique_id=1444001846]
 script = ExtResource("8_6f2m1")
-tiempo_entre_apariciones = 8.0
 
 [node name="TimerMunicion" type="Timer" parent="SpawnerMunicion" unique_id=1456518011]
 

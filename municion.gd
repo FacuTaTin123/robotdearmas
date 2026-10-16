@@ -1,3 +1,4 @@
+
 extends Area2D
 
 func _ready() -> void:
@@ -6,4 +7,5 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("jugador"):
 		body.barra_municion.value = body.barra_municion.max_value
+		body.barra_laser.value = body.barra_laser.max_value
 		queue_free()

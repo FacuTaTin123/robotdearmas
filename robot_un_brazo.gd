@@ -22,19 +22,41 @@ var daño_caida: int = 20
 var estaba_en_el_aire = false
 var atravesando_plataforma: bool = false
 var tiene_brazo: bool = false
+var tiene_laser: bool = false
+var cooldown_daño_laser: float = 0.0
+var laser_activo: bool = false
+
+@export var daño_laser: int = 20
+@export var intervalo_daño_laser: float = 0.1
+@export var consumo_laser_por_segundo: float = 15.0
+@export var distancia_laser: float = 1400.0
+@export var ancho_frame_laser: float = 95.0  # ancho de un frame del sprite sheet
+
+@onready var barra_laser = get_node("../CanvasLayer/BarraLaser")
+@onready var barra_municion = get_node("../CanvasLayer/BarraMunicion")
+@onready var laser_raycast: RayCast2D = $LaserRayCast
+@onready var sprite_laser: AnimatedSprite2D = $SpriteLaser
+@onready var chispas_laser: GPUParticles2D = $ChispasLaser
 
 func activar_brazo() -> void:
 	tiene_brazo = true
-@onready var barra_municion = get_node("../CanvasLayer/BarraMunicion")
+	tiene_laser = true
+	barra_laser.visible = true
 
+	Progreso.tiene_brazo = true
+	Progreso.tiene_laser = true
+	
 func _ready() -> void:
 	add_to_group("jugador")
-	
+	sprite_laser.visible = false
+	chispas_laser.emitting = false
+
+	if Progreso.tiene_brazo and Progreso.tiene_laser:
+		activar_brazo()
+
 func recibir_daño(daño: int):
 	vida -= daño
 	vida = max(vida, 0)
-
-	print("Vida:", vida)
 
 	get_node("../CanvasLayer/BarraVida").value = vida
 
@@ -51,9 +73,8 @@ func recibir_daño(daño: int):
 		morir()
 
 func morir():
-	print("Se acabo")
 	get_tree().change_scene_to_file(ProjectSettings.get_setting("application/run/main_scene"))
-			
+
 func curar(cantidad: int) -> void:
 	vida += cantidad
 	vida = min(vida, 100)
@@ -104,7 +125,7 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_key_pressed(KEY_S) and is_on_floor() and not atravesando_plataforma:
 		atravesar_plataforma()
-		
+
 	var w_presionada = Input.is_key_pressed(KEY_W)
 
 	if w_presionada and not w_presionada_anteriormente:
@@ -122,6 +143,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and cooldown_disparo <= 0:
 		disparar()
 		cooldown_disparo = tiempo_entre_disparos
+
+	if tiene_laser and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and barra_laser.value > 0:
+		disparar_laser(delta)
+	else:
+		apagar_laser()
 
 	move_and_slide()
 
@@ -142,9 +168,61 @@ func atravesar_plataforma() -> void:
 	set_collision_mask_value(2, true)
 	atravesando_plataforma = false
 
+func disparar_laser(delta: float) -> void:
+	if not laser_activo:
+		laser_activo = true
+	sprite_laser.visible = true
+
+	var origen: Vector2 = $PuntoDeDisparo.global_position
+	var direccion_laser = (get_global_mouse_position() - origen).normalized()
+
+	laser_raycast.global_position = origen
+	laser_raycast.target_position = direccion_laser * distancia_laser
+	laser_raycast.force_raycast_update()
+
+	var punto_final_global: Vector2
+	if laser_raycast.is_colliding():
+		punto_final_global = laser_raycast.get_collision_point()
+	else:
+		punto_final_global = origen + direccion_laser * distancia_laser
+
+	# El sprite se estira desde el origen hasta el punto de impacto
+	var largo = origen.distance_to(punto_final_global)
+	sprite_laser.global_position = origen
+	sprite_laser.global_rotation = direccion_laser.angle()
+	sprite_laser.scale.x = largo / ancho_frame_laser
+
+	# Chispas en el punto de impacto
+	chispas_laser.global_position = punto_final_global
+	chispas_laser.emitting = laser_raycast.is_colliding()
+
+	barra_laser.value = max(barra_laser.value - consumo_laser_por_segundo * delta, 0)
+
+	cooldown_daño_laser -= delta
+
+	if laser_raycast.is_colliding():
+		var objetivo_laser = laser_raycast.get_collider()
+
+		if is_instance_valid(objetivo_laser):
+
+			if objetivo_laser.is_in_group("bots") and objetivo_laser.has_method("recibir_daño"):
+				cooldown_daño_laser -= delta
+
+				if cooldown_daño_laser <= 0:
+					objetivo_laser.recibir_daño(daño_laser)
+					cooldown_daño_laser = intervalo_daño_laser
+
+			elif objetivo_laser.is_in_group("pared_laser") and objetivo_laser.has_method("recibir_laser"):
+				objetivo_laser.recibir_laser(delta)
+
+func apagar_laser() -> void:
+	if laser_activo:
+		laser_activo = false
+	sprite_laser.visible = false
+	chispas_laser.emitting = false
+
 func disparar() -> void:
 	if barra_municion.value < costo_municion_por_disparo:
-		print("Sin municion")
 		return
 
 	barra_municion.value -= costo_municion_por_disparo

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dsa2gkuixxomx" path="res://alto robot.png" id="2_onpko"]
 [ext_resource type="Texture2D" uid="uid://cnoknfgdffa3" path="res://robot-jump.png" id="4_mm6aj"]
 [ext_resource type="Texture2D" uid="uid://dwymxrk0uxehu" path="res://robot un brazo.png" id="4_onpko"]
+[ext_resource type="Texture2D" uid="uid://jls2ju3yoorg" path="res://rayo_spritesheet.png" id="6_jpvfx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p4fck"]
 atlas = ExtResource("2_mm6aj")
@@ -385,6 +386,55 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1bsk"]
 size = Vector2(48, 86.5)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_15c46"]
+atlas = ExtResource("6_jpvfx")
+region = Rect2(0, 0, 95, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwhrp"]
+atlas = ExtResource("6_jpvfx")
+region = Rect2(95, 0, 95, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekt8k"]
+atlas = ExtResource("6_jpvfx")
+region = Rect2(190, 0, 95, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2undm"]
+atlas = ExtResource("6_jpvfx")
+region = Rect2(285, 0, 95, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m1bsk"]
+animations = [{
+"frames": [{
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_15c46")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_rwhrp")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_ekt8k")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_2undm")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_jpvfx"]
+offsets = PackedFloat32Array(0, 0.027972028, 1)
+colors = PackedColorArray(0.2429137, 0.0003233424, 0.34362295, 1, 0.34782708, 0.0015075514, 0.64380944, 1, 0.69803923, 0, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jpvfx"]
+gradient = SubResource("Gradient_jpvfx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m1bsk"]
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 98, 0)
+color_ramp = SubResource("GradientTexture1D_jpvfx")
+
 [node name="robot_un_brazo" type="CharacterBody2D" unique_id=1289626739]
 collision_layer = 3
 collision_mask = 3
@@ -404,3 +454,25 @@ shape = SubResource("RectangleShape2D_m1bsk")
 
 [node name="PuntoDeDisparo" type="Marker2D" parent="." unique_id=1714782467]
 position = Vector2(296, 513)
+
+[node name="LaserRayCast" type="RayCast2D" parent="." unique_id=59983656]
+collide_with_areas = true
+
+[node name="LineaLaser" type="Line2D" parent="." unique_id=1016376078]
+visible = false
+default_color = Color(0.40784314, 0, 0.61960787, 1)
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1186958524]
+
+[node name="SpriteLaser" type="AnimatedSprite2D" parent="." unique_id=1095727611]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_m1bsk")
+autoplay = "default"
+frame_progress = 0.7770781
+centered = false
+offset = Vector2(0, -16)
+
+[node name="ChispasLaser" type="GPUParticles2D" parent="." unique_id=18941343]
+amount = 14
+lifetime = 0.45
+process_material = SubResource("ParticleProcessMaterial_m1bsk")

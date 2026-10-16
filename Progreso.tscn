@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d0g41nny5dvro"]
+
+[ext_resource type="Script" uid="uid://wyr5to74gd87" path="res://progreso.gd" id="1_nwso8"]
+
+[node name="Progreso" type="Node2D" unique_id=1942915437]
+script = ExtResource("1_nwso8")

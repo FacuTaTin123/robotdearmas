@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://fkwhi70fro7q"]
+
+[ext_resource type="Script" uid="uid://bqw8srgpukep7" path="res://ParedLaser.gd" id="1_gd32q"]
+[ext_resource type="Texture2D" uid="uid://3es2issffm21" path="res://ParedRota.jpeg" id="1_np7uc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2b3dc"]
+radius = 168.14577
+
+[node name="ParedLaser" type="Area2D" unique_id=1277685324]
+script = ExtResource("1_gd32q")
+textura_rota = ExtResource("1_np7uc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1885899803]
+position = Vector2(575, 277)
+shape = SubResource("CircleShape2D_2b3dc")
