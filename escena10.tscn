@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cq26el7kpjn1d" path="res://escenario 10.jpeg" id="1_f087c"]
 [ext_resource type="PackedScene" uid="uid://tjfy6rmfcbjk" path="res://robot_un_brazo.tscn" id="2_5x6pi"]
 [ext_resource type="PackedScene" uid="uid://bxbvfa3221klf" path="res://HUD.tscn" id="3_rlcml"]
+[ext_resource type="PackedScene" uid="uid://3gr3l5ubbi2k" path="res://avion_copado.tscn" id="4_5x6pi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jw32t"]
 size = Vector2(1162, 119)
@@ -41,3 +42,6 @@ shape = SubResource("RectangleShape2D_ip20c")
 position = Vector2(-190, -62)
 
 [node name="CanvasLayer" parent="." unique_id=1433902688 instance=ExtResource("3_rlcml")]
+
+[node name="AvionCopado" parent="." unique_id=435330747 instance=ExtResource("4_5x6pi")]
+position = Vector2(675, 412)

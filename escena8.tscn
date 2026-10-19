@@ -86,3 +86,10 @@ shape = SubResource("RectangleShape2D_x1ohx")
 [node name="ParedLaser" parent="." unique_id=109519078 instance=ExtResource("8_jroyd")]
 visible = false
 siguiente_escena = "res://escena9.tscn"
+
+[node name="Label" type="Label" parent="." unique_id=913290505]
+offset_left = 905.0
+offset_top = 613.0
+offset_right = 1145.0
+offset_bottom = 641.0
+text = "dispara el laser contra la pared"

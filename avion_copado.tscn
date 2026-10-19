@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://3gr3l5ubbi2k"]
+
+[ext_resource type="Texture2D" uid="uid://bbd21w3v75s4m" path="res://AvionCopado.png" id="1_2ddhw"]
+[ext_resource type="Script" uid="uid://vg641yxlvoxu" path="res://avion_copado.gd" id="1_l28g2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l28g2"]
+size = Vector2(136.03125, 90.25)
+
+[node name="AvionCopado" type="Area2D" unique_id=435330747]
+script = ExtResource("1_l28g2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1147102646]
+position = Vector2(-0.99998474, 0.9999924)
+scale = Vector2(0.6951673, 0.80518466)
+texture = ExtResource("1_2ddhw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=134149088]
+position = Vector2(124, 41)
+shape = SubResource("RectangleShape2D_l28g2")
+
+[node name="Label" type="Label" parent="." unique_id=177996728]
+offset_left = 26.0
+offset_top = -90.0
+offset_right = 226.0
+offset_bottom = -67.0
+text = "Preciona la e para subirte"

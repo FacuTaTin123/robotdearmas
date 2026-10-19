@@ -33,7 +33,7 @@ func spawnear_bot() -> void:
 	if puntos_de_spawn.is_empty():
 		return
 
-	if bots_creados >= bots_para_ganar:
+	if bots_creados >= bots_para_ganar+1:
 		timer_spawn.stop()
 		return
 

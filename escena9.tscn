@@ -50,8 +50,8 @@ position = Vector2(-190, -62)
 script = ExtResource("4_b2ghn")
 punto_patrulla_a = NodePath("../punto a")
 punto_patrulla_b = NodePath("../punto b")
-tiempo_entre_apariciones = 1.5
-bots_para_ganar = 10
+tiempo_entre_apariciones = 0.5
+bots_para_ganar = 20
 siguiente_escena = "uid://b175wpc50baoa"
 
 [node name="TimerSpawn" type="Timer" parent="Spawner" unique_id=465496192]
