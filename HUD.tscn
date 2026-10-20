@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cyay8u532ubd6" path="res://canvas_layer.gd" id="1_k5de2"]
 [ext_resource type="Texture2D" uid="uid://c6goe2ig0vwe6" path="res://mira.png" id="2_efote"]
+[ext_resource type="Texture2D" uid="uid://be2nx6jdern23" path="res://corazon-vacio.png" id="3_ne771"]
+[ext_resource type="Texture2D" uid="uid://mia6bvhjs24r" path="res://corazon-lleno.png" id="3_vow1y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6bpe"]
 bg_color = Color(0, 0.35686275, 0.011764706, 0.36078432)
@@ -29,6 +31,8 @@ bg_color = Color(0.32156864, 0.039215688, 0.41568628, 0.4862745)
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1433902688]
 script = ExtResource("1_k5de2")
+textura_corazon_lleno = ExtResource("3_vow1y")
+textura_corazon_apagado = ExtResource("3_ne771")
 
 [node name="BarraVida" type="ProgressBar" parent="." unique_id=1379098998]
 offset_left = 274.0
@@ -119,3 +123,27 @@ offset_left = 126.0
 offset_top = 6.0
 offset_right = -126.0
 offset_bottom = -5.0
+
+[node name="Corazon1" type="TextureRect" parent="." unique_id=1426677161]
+offset_left = 226.0
+offset_top = 10.0
+offset_right = 259.0
+offset_bottom = 40.0
+texture = ExtResource("3_vow1y")
+expand_mode = 1
+
+[node name="Corazon2" type="TextureRect" parent="." unique_id=683253766]
+offset_left = 193.0
+offset_top = 10.0
+offset_right = 229.0
+offset_bottom = 40.0
+texture = ExtResource("3_vow1y")
+expand_mode = 1
+
+[node name="Corazon3" type="TextureRect" parent="." unique_id=692529879]
+offset_left = 160.0
+offset_top = 10.0
+offset_right = 196.0
+offset_bottom = 41.0
+texture = ExtResource("3_vow1y")
+expand_mode = 1

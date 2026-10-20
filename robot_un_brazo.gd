@@ -45,7 +45,7 @@ func activar_brazo() -> void:
 
 	Progreso.tiene_brazo = true
 	Progreso.tiene_laser = true
-	
+
 func _ready() -> void:
 	add_to_group("jugador")
 	sprite_laser.visible = false
@@ -73,7 +73,12 @@ func recibir_daño(daño: int):
 		morir()
 
 func morir():
-	get_tree().change_scene_to_file(ProjectSettings.get_setting("application/run/main_scene"))
+	Progreso.vidas -= 1
+
+	if Progreso.vidas < 0:
+		get_tree().change_scene_to_file("res://game_over.tscn")
+	else:
+		get_tree().reload_current_scene()
 
 func curar(cantidad: int) -> void:
 	vida += cantidad
