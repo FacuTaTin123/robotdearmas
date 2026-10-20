@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ccscchn46qm4c"]
+
+[ext_resource type="AudioStream" uid="uid://bux1dy8gav74v" path="res://audios/trompeta lose.mp3" id="1_or1pt"]
+
+[node name="GameOver" type="Node2D" unique_id=1416062410]
+
+[node name="TextureRect" type="ColorRect" parent="." unique_id=551943572]
+offset_left = -29.0
+offset_top = -37.0
+offset_right = 1191.0
+offset_bottom = 718.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1336156021]
+offset_left = 257.0
+offset_top = 249.0
+offset_right = 907.0
+offset_bottom = 406.0
+theme_override_font_sizes/font_size = 100
+text = "Perdiste Puto"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=220358438]
+stream = ExtResource("1_or1pt")
+volume_db = 20.0
+pitch_scale = 0.55
+autoplay = true

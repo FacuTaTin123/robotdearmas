@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://b175wpc50baoa"]
+
+[ext_resource type="Texture2D" uid="uid://cq26el7kpjn1d" path="res://fondos_img/escenario 10.jpeg" id="1_f087c"]
+[ext_resource type="PackedScene" uid="uid://tjfy6rmfcbjk" path="res://personajes-objetos_tscn/robot_un_brazo.tscn" id="2_5x6pi"]
+[ext_resource type="PackedScene" uid="uid://bxbvfa3221klf" path="res://personajes-objetos_tscn/HUD.tscn" id="3_rlcml"]
+[ext_resource type="PackedScene" uid="uid://3gr3l5ubbi2k" path="res://personajes-objetos_tscn/avion_copado.tscn" id="4_5x6pi"]
+[ext_resource type="AudioStream" uid="uid://vm0uvs5xpr5d" path="res://audios/musica (9).mp3" id="5_slqv1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jw32t"]
+size = Vector2(1162, 119)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m38kd"]
+size = Vector2(20, 834)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ip20c"]
+size = Vector2(23, 800.5)
+
+[node name="Nivel10" type="Node2D" unique_id=1076147316]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=409867456]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_f087c")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="pisos" type="StaticBody2D" parent="." unique_id=1503273866]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pisos" unique_id=825355330]
+position = Vector2(576, 588.5)
+shape = SubResource("RectangleShape2D_jw32t")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="pisos" unique_id=514257900]
+position = Vector2(1146, 226)
+shape = SubResource("RectangleShape2D_m38kd")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="pisos" unique_id=1819787338]
+position = Vector2(15.5, 247.25)
+shape = SubResource("RectangleShape2D_ip20c")
+
+[node name="robot_un_brazo" parent="." unique_id=1289626739 instance=ExtResource("2_5x6pi")]
+position = Vector2(-190, -62)
+
+[node name="CanvasLayer" parent="." unique_id=1433902688 instance=ExtResource("3_rlcml")]
+
+[node name="AvionCopado" parent="." unique_id=435330747 instance=ExtResource("4_5x6pi")]
+position = Vector2(675, 412)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=184768662]
+stream = ExtResource("5_slqv1")
+volume_db = 5.0
+autoplay = true

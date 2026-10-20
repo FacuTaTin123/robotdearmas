@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="robot con brazos de armas"
-run/main_scene="res://escena1.tscn"
+run/main_scene="uid://cshwkfl7sc3i5"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

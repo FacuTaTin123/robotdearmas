@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwfhx2011yib7"
+path="res://.godot/imported/musica (8).mp3-442a4e952304d8b2cfe1974b127fba88.mp3str"
+
+[deps]
+
+source_file="res://audios/musica (8).mp3"
+dest_files=["res://.godot/imported/musica (8).mp3-442a4e952304d8b2cfe1974b127fba88.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

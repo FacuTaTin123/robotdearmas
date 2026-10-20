@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dsmx3gx7n6ohb"
+path="res://.godot/imported/musica (7).mp3-0658b83473c95fe614029cf2bed104c1.mp3str"
+
+[deps]
+
+source_file="res://audios/musica (7).mp3"
+dest_files=["res://.godot/imported/musica (7).mp3-0658b83473c95fe614029cf2bed104c1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
