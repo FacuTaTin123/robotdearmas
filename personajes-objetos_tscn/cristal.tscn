@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ly41ojkkldx6"]
 
-[ext_resource type="Texture2D" uid="uid://hgcdlyd25r1" path="res://cristal.png" id="1_x6c6u"]
+[ext_resource type="Texture2D" uid="uid://hgcdlyd25r1" path="res://sprites_img/cristal.png" id="1_x6c6u"]
+[ext_resource type="AudioStream" uid="uid://dwea0l10bjmsc" path="res://audios/mejora.mp3" id="2_dxsqk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_amt5x"]
 size = Vector2(35, 41)
@@ -14,3 +15,7 @@ texture = ExtResource("1_x6c6u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2039217400]
 shape = SubResource("RectangleShape2D_amt5x")
+
+[node name="SonidoCristal" type="AudioStreamPlayer2D" parent="." unique_id=1797075044]
+stream = ExtResource("2_dxsqk")
+volume_db = 17.034

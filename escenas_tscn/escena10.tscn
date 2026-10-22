@@ -46,6 +46,7 @@ position = Vector2(-190, -62)
 
 [node name="AvionCopado" parent="." unique_id=435330747 instance=ExtResource("4_5x6pi")]
 position = Vector2(675, 412)
+escena_final = "uid://gfkeq5fjqlpk"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=184768662]
 stream = ExtResource("5_slqv1")

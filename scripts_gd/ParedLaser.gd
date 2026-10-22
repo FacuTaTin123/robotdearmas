@@ -30,7 +30,7 @@ func romper() -> void:
 
 	rota = true
 	fondo.texture = textura_rota
-
+	$SonidoChoque.play()
 	if siguiente_escena != "":
 		await get_tree().create_timer(3.0).timeout
 		get_tree().change_scene_to_file(siguiente_escena)

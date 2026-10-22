@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://spga7qdy54jh" path="res://scripts_gd/spawner.gd" id="7_mpoy4"]
 [ext_resource type="Script" uid="uid://c75h7xswate6c" path="res://scripts_gd/spawner_municion.gd" id="8_6f2m1"]
 [ext_resource type="Script" uid="uid://c18ghtw1bb5nu" path="res://scripts_gd/spawner_vida.gd" id="8_vbn67"]
-[ext_resource type="AudioStream" uid="uid://be5tqwtrrewj1" path="res://audios/musica1.mp3" id="9_hulxn"]
+[ext_resource type="AudioStream" uid="uid://tyikwbiwap2w" path="res://audios/musica.mp3" id="9_hulxn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l21el"]
 size = Vector2(1168, 20)

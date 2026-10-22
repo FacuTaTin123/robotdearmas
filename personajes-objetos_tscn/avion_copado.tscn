@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://3gr3l5ubbi2k"]
 
-[ext_resource type="Texture2D" uid="uid://bbd21w3v75s4m" path="res://AvionCopado.png" id="1_2ddhw"]
-[ext_resource type="Script" uid="uid://vg641yxlvoxu" path="res://avion_copado.gd" id="1_l28g2"]
+[ext_resource type="Texture2D" uid="uid://bbd21w3v75s4m" path="res://sprites_img/AvionCopado.png" id="1_2ddhw"]
+[ext_resource type="Script" uid="uid://vg641yxlvoxu" path="res://scripts_gd/avion_copado.gd" id="1_l28g2"]
+[ext_resource type="AudioStream" uid="uid://3equfmlnu2df" path="res://audios/avion-milico.mp3" id="3_gi5tm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l28g2"]
 size = Vector2(136.03125, 90.25)
@@ -24,3 +25,7 @@ offset_top = -90.0
 offset_right = 226.0
 offset_bottom = -67.0
 text = "Preciona la e para subirte"
+
+[node name="SonidoDespegue" type="AudioStreamPlayer2D" parent="." unique_id=150141809]
+stream = ExtResource("3_gi5tm")
+volume_db = 24.0

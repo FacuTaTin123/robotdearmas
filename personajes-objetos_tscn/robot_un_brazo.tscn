@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://jls2ju3yoorg" path="res://sprites_img/rayo_spritesheet.png" id="6_jpvfx"]
 [ext_resource type="AudioStream" uid="uid://cyba7aetor1sf" path="res://audios/disparar.mp3" id="7_36xue"]
 [ext_resource type="AudioStream" uid="uid://byub2jp8f8in0" path="res://audios/curar.mp3" id="8_fxhtd"]
+[ext_resource type="AudioStream" uid="uid://cxxxj0kb5sxsd" path="res://audios/laser.mp3" id="9_cs4a1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p4fck"]
 atlas = ExtResource("2_mm6aj")
@@ -487,3 +488,7 @@ volume_db = -10.0
 [node name="curar" type="AudioStreamPlayer2D" parent="." unique_id=1725677985]
 stream = ExtResource("8_fxhtd")
 volume_db = 1.0
+
+[node name="laser" type="AudioStreamPlayer2D" parent="." unique_id=377802904]
+stream = ExtResource("9_cs4a1")
+volume_db = 24.0

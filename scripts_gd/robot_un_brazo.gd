@@ -55,10 +55,17 @@ func _ready() -> void:
 		activar_brazo()
 
 func recibir_daño(daño: int):
+	if vida <= 0:
+		return
+
 	vida -= daño
 	vida = max(vida, 0)
 
 	get_node("../CanvasLayer/BarraVida").value = vida
+
+	if vida <= 0:
+		morir()
+		return
 
 	if not recibiendo_daño:
 		recibiendo_daño = true
@@ -69,25 +76,14 @@ func recibir_daño(daño: int):
 		$Sprite2D.modulate = Color.WHITE
 		recibiendo_daño = false
 
-	if vida <= 0:
-		morir()
-
 func morir():
 	Progreso.vidas -= 1
 
-	if Progreso.vidas < 0:
-		call_deferred("_cambiar_a_game_over")
+	if Progreso.vidas == -1:
+		Progreso.vidas = 3
+		get_tree().change_scene_to_file("res://escenas_tscn/game_over.tscn")
 	else:
-		call_deferred("_reiniciar_nivel")
-
-
-func _cambiar_a_game_over() -> void:
-	get_tree().change_scene_to_file("res://game_over.tscn")
-
-
-func _reiniciar_nivel() -> void:
-	get_tree().reload_current_scene()
-
+		get_tree().reload_current_scene()
 func curar(cantidad: int) -> void:
 	vida += cantidad
 	vida = min(vida, 100)
@@ -185,6 +181,7 @@ func atravesar_plataforma() -> void:
 func disparar_laser(delta: float) -> void:
 	if not laser_activo:
 		laser_activo = true
+		$laser.play()
 	sprite_laser.visible = true
 
 	var origen: Vector2 = $PuntoDeDisparo.global_position
@@ -197,6 +194,7 @@ func disparar_laser(delta: float) -> void:
 	var punto_final_global: Vector2
 	if laser_raycast.is_colliding():
 		punto_final_global = laser_raycast.get_collision_point()
+		$laser.play()
 	else:
 		punto_final_global = origen + direccion_laser * distancia_laser
 
@@ -232,6 +230,7 @@ func disparar_laser(delta: float) -> void:
 func apagar_laser() -> void:
 	if laser_activo:
 		laser_activo = false
+		$laser.stop()
 	sprite_laser.visible = false
 	chispas_laser.emitting = false
 

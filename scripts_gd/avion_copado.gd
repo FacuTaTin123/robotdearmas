@@ -42,12 +42,13 @@ func embarcar() -> void:
 	jugador_cerca.visible = false
 	jugador_cerca.set_physics_process(false)
 	jugador_cerca.set_process(false)
-
+	$SonidoDespegue.play()
+	
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)
 	tween.tween_property(self, "position", position + Vector2(2000, -800), duracion_vuelo)
-	
-	await tween.finished
 
-	#if escena_final != "":
-	#	get_tree().change_scene_to_file(escena_final)
+	await get_tree().create_timer(3.8).timeout
+
+	if escena_final != "":
+		get_tree().change_scene_to_file(escena_final)
